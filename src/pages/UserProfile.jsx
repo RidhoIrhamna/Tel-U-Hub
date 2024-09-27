@@ -277,7 +277,7 @@ const UserProfile = () => {
                         {interest}
                         {canEditInterests && (
                           <>
-                            <button onClick={() => startEditingInterest(index)}>Edit</button>
+                            <button onClick={() => startEditingInterest(index)}>✏️</button>
                             <button onClick={() => deleteInterest(index)}>Delete</button>
                           </>
                         )}
@@ -335,7 +335,7 @@ const UserProfile = () => {
                         {skill.name} - Level: {skill.level}
                         {canEditSkills && (
                           <>
-                            <button onClick={() => startEditingSkill(index)}>Edit</button>
+                            <button onClick={() => startEditingSkill(index)}>✏️</button>
                             <button onClick={() => deleteSkill(index)}>Delete</button>
                           </>
                         )}

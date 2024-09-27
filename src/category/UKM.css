@@ -4,16 +4,15 @@
     font-family: 'Arial', sans-serif; /* Font berbeda untuk UKM */
     margin: 20px auto;
     border-radius: 25px;
-    border: 2px solid #d1e8ff; /* Border khusus */
     padding: 20px;
-    background-color: #f9f9f9; /* Warna latar yang lebih lembut */
+    background-color: #ffffff; /* Warna latar yang lebih lembut */
 }
 
 .ukm-page h2 {
     text-align: left;
     margin-top: 0;
     font-size: 2.5rem;
-    background: linear-gradient(90deg, #6cb2ff, #004f99); /* Gradient unik */
+    background: linear-gradient(90deg, #ea9393, #311010); /* Gradient unik */
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -29,7 +28,7 @@
 }
 
 .ukm-page li {
-    background-color: #e3f2fd; /* Latar belakang yang lebih lembut */
+    background-color: #fef4f4; /* Latar belakang yang lebih lembut */
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Bayangan yang lebih halus */
     overflow: hidden;
@@ -50,7 +49,7 @@
 
 .ukm-page h4 {
     font-size: 1.2rem; /* Ukuran font yang lebih besar untuk h4 */
-    color: #444;
+    color: #333;
     margin-top: 0;
     text-align: center;
 }
@@ -70,7 +69,7 @@
 }
 
 .ukm-page button {
-    background-color: #3b5998; /* Warna biru khas untuk tombol */
+    background-color: #e05b59; /* Warna biru khas untuk tombol */
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -85,7 +84,7 @@
 }
 
 .ukm-page button:hover {
-    background-color: #2d4373; /* Warna lebih gelap saat hover */
+    background-color: #7a3230; /* Warna lebih gelap saat hover */
 }
 
 .ukm-page i {
@@ -104,7 +103,7 @@
     justify-content: space-around;
     margin-bottom: 20px;
     padding: 10px 0;
-    background-color: #e3f2fd; /* Latar belakang filter kategori */
+    background-color: #fef4f4; /* Latar belakang filter kategori */
     border-radius: 15px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -119,11 +118,11 @@
 }
 
 .ukm-category-filter-row span:hover {
-    background-color: #2d4373; /* Warna biru gelap untuk hover */
+    background-color: #7a3230;
     color: #fff;
 }
 
 .ukm-category-filter-row span.active {
-    background-color: #3b5998; /* Warna biru untuk kategori aktif */
+    background-color: #e05b59;
     color: #fff;
 }

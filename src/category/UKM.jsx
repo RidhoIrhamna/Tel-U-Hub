@@ -1,33 +1,33 @@
 import React, { useState } from 'react';
 import "./UKM.css"; 
 // Uncomment these imports when images are available
-// import hmsi from '../assets/hmsi.png';
-// import hmti from '../assets/hmti.png';
-// import disca from '../assets/disca.jpeg';
+import NBB from '../assets/NBB.JPEG';
+import UKMBand from '../assets/UKMBand.png';
+import Aksara from '../assets/aksara.png';
 
 const ukmGroups = [
   {
     id: 1,
-    name: 'HMSI (Himpunan Mahasiswa Sistem Informasi)',
-    description: 'Himpunan Mahasiswa Sistem Informasi (HMSI) adalah komunitas mahasiswa S1 Sistem Informasi di Universitas Telkom.',
-    // photo: hmsi,
-    link: 'https://www.instagram.com/hmsi_telkomuniversity',
-    category: 'Teknik',
+    name: 'NBB (Nippon Bunkan Bu)',
+    description: 'Nippon Bunkan Bu (NBB) adalah UKM mahasiswa yang bergerak di bidang kebudayaan jepang.',
+    photo: NBB,
+    link: 'https://www.instagram.com/nbb.unitel',
+    category: 'Kesenian',
   },
   {
     id: 2,
-    name: 'HMTI (Himpunan Mahasiswa Teknik Industri)',
-    description: 'Himpunan Mahasiswa Teknik Industri (HMTI) adalah komunitas mahasiswa S1 Teknik Industri di Universitas Telkom.',
-    // photo: hmti,
-    link: 'https://www.instagram.com/hmit_telu',
-    category: 'Teknik',
+    name: 'Aksara Jurnalistik ',
+    description: 'Aksara Jurnalistik adalah UKM mahasiswa yang bergerak di bidang jurnalistik dan publikasi.',
+    photo: Aksara,
+    link: 'https://www.instagram.com/aksara_tu',
+    category: 'Umum',
   },
   {
     id: 3,
-    name: 'DISCA (Digital Supply Chain Student Association)',
-    description: 'DISCA adalah komunitas mahasiswa S1 Digital Supply Chain di Universitas Telkom.',
-    // photo: disca,
-    link: 'https://www.instagram.com/disca.telkomuniv',
+    name: 'UKM Band',
+    description: 'Nippon Bunkan Bu (NBB) adalah UKM mahasiswa yang bergerak di bidang scene musik.',
+    photo: UKMBand,
+    link: 'https://www.instagram.com/ukmbandunitel',
     category: 'Bisnis',
   },
   // Tambahkan grup UKM lainnya di sini
@@ -59,16 +59,22 @@ const UKM = () => {
           Semua
         </span>
         <span
-          className={selectedCategory === 'Teknik' ? 'active' : ''}
-          onClick={() => handleCategoryClick('Teknik')}
+          className={selectedCategory === 'Kesenian' ? 'active' : ''}
+          onClick={() => handleCategoryClick('Kesenian')}
         >
-          Teknik
+          Kesenian
         </span>
         <span
-          className={selectedCategory === 'Bisnis' ? 'active' : ''}
-          onClick={() => handleCategoryClick('Bisnis')}
+          className={selectedCategory === 'Umum' ? 'active' : ''}
+          onClick={() => handleCategoryClick('Umum')}
         >
-          Bisnis
+         Umum
+        </span>
+        <span
+          className={selectedCategory === 'Lainnya' ? 'active' : ''}
+          onClick={() => handleCategoryClick('Lainnya')}
+        >
+         Etc
         </span>
         {/* Tambahkan kategori lainnya jika diperlukan */}
       </div>
@@ -88,10 +94,10 @@ const UKM = () => {
             </li>
           ))
         ) : (
-          <p>Kelompok UKM tidak ditemukan.</p>
+          <p>UKM tidak ditemukan.</p>
         )}
       </ul>
-      <h4>Dalam pengembangan...</h4>
+      <h4>on development...</h4>
     </div>
   );
 };

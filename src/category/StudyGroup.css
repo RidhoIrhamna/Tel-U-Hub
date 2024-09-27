@@ -1,19 +1,20 @@
 /* Unique styles for StudyGroup page */
 .study-group-page {
     max-width: 1200px;
-    font-family: 'Verdana', sans-serif; /* Font berbeda untuk StudyGroup */
+    font-family: 'Poppins', sans-serif; /* Font berbeda untuk StudyGroup */
     margin: 20px auto;
     border-radius: 25px;
-    border: 2px solid #d4e1d1; /* Border khusus untuk StudyGroup */
+    border-style: none;
+
     padding: 20px;
-    background-color: #f4f7f2; /* Warna latar yang lebih tenang */
+    background-color: #ffffff; /* Warna latar yang lebih tenang */
 }
 
 .study-group-page h2 {
     text-align: left;
     margin-top: 0;
     font-size: 2.5rem;
-    background: linear-gradient(90deg, #a1d884, #267a3c); /* Gradient hijau unik */
+    background: linear-gradient(90deg, #ea9393, #311010); /* Gradient hijau unik */
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -29,7 +30,7 @@
 }
 
 .study-group-page li {
-    background-color: #e7f4e0; /* Latar belakang yang lebih segar */
+    background-color: #fef4f4; /* Latar belakang yang lebih segar */
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Bayangan yang lebih halus */
     overflow: hidden;
@@ -70,7 +71,7 @@
 }
 
 .study-group-page button {
-    background-color: #6c9d45; /* Warna hijau khas untuk tombol */
+    background-color: #e05b59; /* Warna hijau khas untuk tombol */
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -85,7 +86,7 @@
 }
 
 .study-group-page button:hover {
-    background-color: #517530; /* Warna lebih gelap saat hover */
+    background-color: #7a3230; /* Warna lebih gelap saat hover */
 }
 
 .study-group-page i {
@@ -104,7 +105,7 @@
     justify-content: space-around;
     margin-bottom: 20px;
     padding: 10px 0;
-    background-color: #e7f4e0; /* Latar belakang filter kategori */
+    background-color: #fef4f4; /* Latar belakang filter kategori */
     border-radius: 15px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -119,11 +120,11 @@
 }
 
 .study-group-category-filter-row span:hover {
-    background-color: #517530; /* Warna hijau gelap untuk hover */
+    background-color: #7a3230; /* Warna hijau gelap untuk hover */
     color: #fff;
 }
 
 .study-group-category-filter-row span.active {
-    background-color: #6c9d45; /* Warna hijau untuk kategori aktif */
+    background-color: #e05b59; /* Warna hijau untuk kategori aktif */
     color: #fff;
 }

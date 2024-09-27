@@ -1,34 +1,34 @@
 import React, { useState } from 'react';
 import "./StudyGroup.css"; 
 // Uncomment these imports when images are available
-// import groupA from '../assets/groupA.png';
-// import groupB from '../assets/groupB.png';
-// import groupC from '../assets/groupC.jpeg';
+import ESD from '../assets/esd.jpeg';
+import SAG from '../assets/sag.jpeg';
+import Search from '../assets/search.jpeg';
 
 const studyGroups = [
   {
     id: 1,
-    name: 'Data Science Study Group',
-    description: 'This group focuses on exploring various data science techniques including machine learning, data analysis, and visualization.',
-    // photo: groupA,
-    link: 'https://www.instagram.com/datasciencestudygroup',
-    category: 'Technology',
+    name: 'Enterprise System Development Study Group',
+    description: 'This group focus on technology field and how to development best digital product.',
+    photo: ESD,
+    link: 'https://www.instagram.com/esducation_/',
+    category: 'FRI',
   },
   {
     id: 2,
-    name: 'Marketing Analytics Study Group',
-    description: 'A group dedicated to learning how to apply analytics and data-driven decision making in marketing strategies.',
-    // photo: groupB,
-    link: 'https://www.instagram.com/marketinganalyticsgroup',
-    category: 'Business',
+    name: 'System Architecture and Governance Study Group',
+    description: 'This group focus on technology field and how to achieve best digital product.',
+    photo: SAG,
+    link: 'https://www.instagram.com/sagstudygroup/',
+    category: 'FRI',
   },
   {
     id: 3,
-    name: 'Blockchain Development Study Group',
-    description: 'This group delves into the principles of blockchain technology, smart contracts, and decentralized applications (dApps).',
-    // photo: groupC,
-    link: 'https://www.instagram.com/blockchaindevelopmentgroup',
-    category: 'Technology',
+    name: 'Search Telkom University Study Group',
+    description: 'This group focus on Student’s Activities for Research and Competition Handling.',
+    photo: Search,
+    link: 'https://www.instagram.com/searchtelkomunv/',
+    category: 'Umum',
   },
   // Add more study groups as needed
 ];
@@ -59,16 +59,22 @@ const StudyGroup = () => {
           All
         </span>
         <span
-          className={selectedCategory === 'Technology' ? 'active' : ''}
-          onClick={() => handleCategoryClick('Technology')}
+          className={selectedCategory === 'FRI' ? 'active' : ''}
+          onClick={() => handleCategoryClick('FRI')}
         >
-          Technology
+          FRI
         </span>
         <span
-          className={selectedCategory === 'Business' ? 'active' : ''}
-          onClick={() => handleCategoryClick('Business')}
+          className={selectedCategory === 'Umum' ? 'active' : ''}
+          onClick={() => handleCategoryClick('Umum')}
         >
-          Business
+          Umum
+        </span>
+        <span
+          className={selectedCategory === 'ETC' ? 'active' : ''}
+          onClick={() => handleCategoryClick('ETC')}
+        >
+          Etc
         </span>
         {/* Add more categories if needed */}
       </div>

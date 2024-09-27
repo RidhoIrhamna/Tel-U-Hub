@@ -1,0 +1,131 @@
+/* Other existing styles */
+.community-page {
+    max-width: 1200px;
+    font-style: Poppins, sans-serif;
+    margin: 20px auto;
+    border-radius: 25px;
+    border-color: #fef4f4;
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+.community-page h2 {
+    text-align: left;
+    margin-top: 0;
+    font-size: 2.5rem;
+    background: linear-gradient(90deg, #ea9393, #311010);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.community-page ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 20px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.community-page li {
+    background-color: #fef4f4;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    padding: 20px;
+}
+
+.community-page li:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.community-page h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-top: 0;
+}
+
+.community-page h4 {
+    font-size: 1.0rem;
+    color: #333;
+    margin-top: 0;
+    text-align: center;
+}
+
+.community-page p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.community-page img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.community-page button {
+    background-color: #e05b59;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.community-page button:hover {
+    background-color: #7a3230;
+}
+
+.community-page i {
+    margin-left: 10px;
+    font-size: 1.2rem;
+}
+
+.community-page a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Category filter row styling */
+.category-filter-row {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    padding: 10px 0;
+    background-color: #fef4f4;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.category-filter-row span {
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #666;
+    transition: color 0.3s, background-color 0.3s;
+    border-radius: 10px;
+}
+
+.category-filter-row span:hover {
+    background-color: #7a3230;
+    color: #fff;
+}
+
+.category-filter-row span.active {
+    background-color: #e05b59;
+    color: #fff;
+}
+
+

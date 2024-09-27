@@ -1,0 +1,129 @@
+/* Unique styles for StudyGroup page */
+.study-group-page {
+    max-width: 1200px;
+    font-family: 'Verdana', sans-serif; /* Font berbeda untuk StudyGroup */
+    margin: 20px auto;
+    border-radius: 25px;
+    border: 2px solid #d4e1d1; /* Border khusus untuk StudyGroup */
+    padding: 20px;
+    background-color: #f4f7f2; /* Warna latar yang lebih tenang */
+}
+
+.study-group-page h2 {
+    text-align: left;
+    margin-top: 0;
+    font-size: 2.5rem;
+    background: linear-gradient(90deg, #a1d884, #267a3c); /* Gradient hijau unik */
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.study-group-page ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 20px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.study-group-page li {
+    background-color: #e7f4e0; /* Latar belakang yang lebih segar */
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Bayangan yang lebih halus */
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    padding: 20px;
+}
+
+.study-group-page li:hover {
+    transform: translateY(-5px); /* Sedikit perubahan saat hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Bayangan lebih dramatis saat hover */
+}
+
+.study-group-page h3 {
+    font-size: 1.6rem; /* Ukuran font yang lebih besar */
+    color: #333;
+    margin-top: 0;
+}
+
+.study-group-page h4 {
+    font-size: 1.2rem; /* Ukuran font yang lebih besar untuk h4 */
+    color: #444;
+    margin-top: 0;
+    text-align: center;
+}
+
+.study-group-page p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.study-group-page img {
+    width: 100%;
+    height: 200px; /* Tinggi yang sedikit lebih besar */
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.study-group-page button {
+    background-color: #6c9d45; /* Warna hijau khas untuk tombol */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.study-group-page button:hover {
+    background-color: #517530; /* Warna lebih gelap saat hover */
+}
+
+.study-group-page i {
+    margin-left: 10px;
+    font-size: 1.2rem;
+}
+
+.study-group-page a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Category filter row styling */
+.study-group-category-filter-row {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    padding: 10px 0;
+    background-color: #e7f4e0; /* Latar belakang filter kategori */
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.study-group-category-filter-row span {
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #666;
+    transition: color 0.3s, background-color 0.3s;
+    border-radius: 10px;
+}
+
+.study-group-category-filter-row span:hover {
+    background-color: #517530; /* Warna hijau gelap untuk hover */
+    color: #fff;
+}
+
+.study-group-category-filter-row span.active {
+    background-color: #6c9d45; /* Warna hijau untuk kategori aktif */
+    color: #fff;
+}

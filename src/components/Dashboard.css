@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* Scope all styles under .dashboard-container to make them exclusive to the Dashboard */
+.dashboard-container {
+  display: flex;
+  height: 100vh; /* Full height of the viewport */
+}
+
+.dashboard-content {
+  flex-grow: 1;
+  margin-left: 200px; /* Space for any sidebar (if applicable) */
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+  max-height: 100vh; /* Limit the height to viewport height */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+/* Header with search bar and user profile */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: linear-gradient(90deg, #7a3230 47%, #e05b59 100%); /* Gradient background */
+  color: #fff;
+}
+
+.dashboard-search-bar-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  flex-grow: 1;
+  max-width: 60%; /* Max width for the search bar */
+}
+
+.dashboard-search-bar {
+  width: 100%; /* Full width of the container */
+  padding: 10px 40px; /* Padding adjusted for search icon space */
+  border-radius: 25px;
+  border: 2px solid #fff; /* White border */
+  background-color: #fff; /* White background for the input */
+  font-size: 16px;
+  color: #333; /* Dark text color */
+}
+
+.dashboard-search-bar::placeholder {
+  color: #999; /* Placeholder text color */
+}
+
+.dashboard-search-icon {
+  position: absolute;
+  left: 15px; /* Positioning the icon inside the input */
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999; /* Icon color */
+  font-size: 18px; /* Icon size */
+}
+
+.dashboard-user-profile {
+  display: flex;
+}
+
+.dashboard-user-profile-pic {
+  width: 65px; /* User profile image width */
+  height: 65px; /* User profile image height */
+  border-radius: 50%; /* Circular profile image */
+  margin-right: 10px; /* Space between image and name */
+}
+
+.dashboard-user-name {
+  font-size: 18px; /* Font size for the user name */
+  color: white; /* White text color */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none; /* No underline */
+}
+
+.dashboard-logout-button {
+  padding: 10px 20px; /* Button padding */
+  background-color: #ff4d4d; /* Red background color */
+  color: white; /* White text color */
+  border: none; /* No border */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+.dashboard-main-content {
+  padding: 20px; /* Padding inside the main content */
+  background-color: white; /* White background for main content */
+  flex-grow: 1; /* Allow main content to grow */
+}

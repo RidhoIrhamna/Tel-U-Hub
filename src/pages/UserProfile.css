@@ -1,0 +1,178 @@
+.user-profile-page {
+  padding: 40px;
+  font-family: Arial, sans-serif;
+}
+
+.user-profile-page h1 {
+  margin-bottom: 20px;
+  font-family: inter;
+  background: linear-gradient(100deg, #d85454, #1a0f0f);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.profile-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap; /* Flex wrap for better responsiveness */
+  gap: 20px; /* Ensure 20px gap between items */
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
+.profile-info p {
+  margin-bottom: 20px;
+}
+
+/* Profile picture */
+.profile-picture {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profile-picture-input {
+  display: none;
+}
+
+.profile-picture-label {
+  display: inline-block;
+  padding: 8px 12px;
+  background-color: #4caf50;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.profile-left{
+  background-color: #6b272768;
+  padding: 20px;
+  border-radius: 20px;
+  gap: 20px;
+}
+
+.interest-container,
+.skills-container {
+  background-color: #6b272768;
+  padding: 30px;
+  border-radius: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profile-left {
+  flex: 1 1 40%;
+}
+
+.profile-right {
+  flex: 1 1 55%;
+}
+
+/* Gap for each item inside the profile-left, interest-container, skills-container */
+.profile-left > * {
+  margin-bottom: 20px;
+}
+
+.interest-container > * {
+  margin-bottom: 20px;
+}
+
+.skills-container > * {
+  margin-bottom: 20px;
+}
+
+/* Skill item spacing */
+.skills-container .skill {
+  margin-bottom: 20px;
+}
+
+ul li {
+  margin-bottom: 20px;
+}
+
+.new-skill-form input[type="text"],
+.new-skill-form input[type="number"],
+.new-interest-form input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin: 12px 0; /* Increase margin between form inputs */
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+/* Styling for inputs and buttons */
+input:focus {
+  border-color: #4caf50;
+  box-shadow: 0 0 6px rgba(76, 175, 80, 0.5);
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  background-color: #d85454;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 15px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+/* Progress bar styling */
+.progress-bar {
+  width: 100%;
+  background-color: #ddd;
+  border-radius: 4px;
+  height: 10px;
+  margin-top: 8px;
+}
+
+.progress {
+  height: 100%;
+  background-color: #d85454;
+  border-radius: 4px;
+}
+
+/* Styling for quote section */
+.quote {
+  font-style: italic;
+  font-family: inter;
+  background: linear-gradient(100deg, #ffffff, #ff0000);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  font-size: 30px;
+}
+
+.edit-icon {
+
+  font-size: 20px;
+  cursor: pointer;
+}
+/* Responsive design */
+@media (max-width: 768px) {
+  .profile-container {
+    flex-direction: column;
+    gap: 20px; /* Ensure 20px gap between items on smaller screens */
+  }
+
+  .profile-left,
+  .profile-right {
+    width: 100%;
+  }
+}

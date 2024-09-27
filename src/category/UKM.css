@@ -1,0 +1,129 @@
+/* Unique styles for UKM page */
+.ukm-page {
+    max-width: 1200px;
+    font-family: 'Arial', sans-serif; /* Font berbeda untuk UKM */
+    margin: 20px auto;
+    border-radius: 25px;
+    border: 2px solid #d1e8ff; /* Border khusus */
+    padding: 20px;
+    background-color: #f9f9f9; /* Warna latar yang lebih lembut */
+}
+
+.ukm-page h2 {
+    text-align: left;
+    margin-top: 0;
+    font-size: 2.5rem;
+    background: linear-gradient(90deg, #6cb2ff, #004f99); /* Gradient unik */
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.ukm-page ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 20px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.ukm-page li {
+    background-color: #e3f2fd; /* Latar belakang yang lebih lembut */
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Bayangan yang lebih halus */
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    padding: 20px;
+}
+
+.ukm-page li:hover {
+    transform: translateY(-5px); /* Sedikit perubahan saat hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Bayangan lebih dramatis saat hover */
+}
+
+.ukm-page h3 {
+    font-size: 1.6rem; /* Ukuran font yang lebih besar */
+    color: #333;
+    margin-top: 0;
+}
+
+.ukm-page h4 {
+    font-size: 1.2rem; /* Ukuran font yang lebih besar untuk h4 */
+    color: #444;
+    margin-top: 0;
+    text-align: center;
+}
+
+.ukm-page p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.ukm-page img {
+    width: 100%;
+    height: 200px; /* Tinggi yang sedikit lebih besar */
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.ukm-page button {
+    background-color: #3b5998; /* Warna biru khas untuk tombol */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.ukm-page button:hover {
+    background-color: #2d4373; /* Warna lebih gelap saat hover */
+}
+
+.ukm-page i {
+    margin-left: 10px;
+    font-size: 1.2rem;
+}
+
+.ukm-page a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Category filter row styling */
+.ukm-category-filter-row {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    padding: 10px 0;
+    background-color: #e3f2fd; /* Latar belakang filter kategori */
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ukm-category-filter-row span {
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #666;
+    transition: color 0.3s, background-color 0.3s;
+    border-radius: 10px;
+}
+
+.ukm-category-filter-row span:hover {
+    background-color: #2d4373; /* Warna biru gelap untuk hover */
+    color: #fff;
+}
+
+.ukm-category-filter-row span.active {
+    background-color: #3b5998; /* Warna biru untuk kategori aktif */
+    color: #fff;
+}

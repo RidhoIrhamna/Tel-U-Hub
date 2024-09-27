@@ -1,0 +1,124 @@
+.sidebar {
+    font-family: 'Poppins';
+    width: 200px;
+    background: linear-gradient(90deg, #e05b59 47%, #7a3230 100%);
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    overflow-y: auto;
+    z-index: 2;
+}
+
+.sidebar-logo {
+    margin: 0;
+    padding: 5px;
+    width: 100%;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    margin: 20px 0;
+}
+
+.sidebar ul li .icon {
+    font-size: 20px;
+}
+
+.sidebar ul li .oval-button {
+    display: flex;
+    align-items: center; /* Pusatkan teks dan ikon secara vertikal */
+    padding: 10px;
+    width: 100%;
+    border-radius: 50px 0 0 50px;
+    color: white;
+    background-color: transparent;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.sidebar ul li .oval-button.active {
+    background-color: #fff;
+    color: #e05b59;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar ul li .oval-button:hover, .oval-button:focus {
+    outline: none;
+    background-color: rgb(255, 255, 255);
+    color: #000000;
+    width: 113%;
+}
+
+.sidebar-footer {
+    position: absolute;
+    bottom: 0;
+    padding: 15px;
+    text-align: center;
+}
+
+.sidebar-footer .icon {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.sidebar-footer .oval-button {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 150px;
+    }
+
+    .sidebar ul li .oval-button {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .sidebar ul li .icon {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 600px) {
+    .sidebar {
+        width: 100px;
+    }
+
+    .sidebar ul li .oval-button {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    .sidebar ul li .icon {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 400px) {
+    .sidebar {
+        width: 80px;
+    }
+
+    .sidebar ul li .oval-button {
+        font-size: 10px;
+        padding: 4px;
+    }
+
+    .sidebar ul li .icon {
+        font-size: 12px;
+    }
+}

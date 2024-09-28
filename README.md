@@ -24,6 +24,6 @@ Tel-U Hub adalah sebuah aplikasi web yang dirancang untuk memudahkan pengguna da
 ## Teknologi yang Digunakan
 - **Frontend**: React.js, HTML, CSS, VITE
 - **Backend**: Node.js (Express)
-- **Database**: SQLite (phpMyAdmin)
+- **Database**: MySQL (phpMyAdmin)
 - **Autentikasi**: JWT (JSON Web Token)
 

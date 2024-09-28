@@ -7,6 +7,7 @@ import './Dashboard.css';
 import Sidebar from './Sidebar';
 import Home from '../pages/Home';
 import Community from '../pages/Community';
+import Organization from '../pages/Organization';
 import MBTITest from '../pages/MBTITest';
 import UserProfile from '../pages/UserProfile';
 
@@ -21,10 +22,17 @@ const Dashboard = () => {
 
   const navigate = useNavigate();
 
+  // Fetch user data from API
   useEffect(() => {
     const fetchUserData = async () => {
       const token = localStorage.getItem('authToken');
       const userId = localStorage.getItem('userId');
+
+      if (!token) {
+        alert('You are not logged in!');
+        navigate('/login'); // Redirect to login page if no token
+        return;
+      }
 
       try {
         const response = await fetch(`https://skillhub-esdlaboratory.loca.lt/api/users/${userId}`, {
@@ -35,8 +43,8 @@ const Dashboard = () => {
         });
 
         if (!response.ok) {
-          const errorData = await response.json();
-          throw new Error(errorData.message || 'Failed to fetch user data');
+          const errorData = await response.json(); // Capture error response
+          throw new Error(errorData.message || 'Failed to fetch user data'); // Provide more context
         }
 
         const data = await response.json();
@@ -45,8 +53,8 @@ const Dashboard = () => {
           profileImage: data.profileImage ? `https://skillhub-esdlaboratory.loca.lt${data.profileImage}` : '../src/assets/user-profile.jpg',
         });
       } catch (error) {
-        setError(error.message);
-        console.error('Error fetching user data:', error);
+        setError(error.message); // Set detailed error message
+        console.error('Error fetching user data:', error); // Log error details
       } finally {
         setLoading(false);
       }
@@ -54,6 +62,14 @@ const Dashboard = () => {
 
     fetchUserData();
   }, [navigate]);
+
+  // if (loading) {
+  //   return <div>Loading user data...</div>; // Loading message
+  // }
+
+  // if (error) {
+  //   return <div>Error: {error}</div>; // Display error if fetching fails
+  // }
 
   return (
     <div className="dashboard-container">
@@ -68,7 +84,7 @@ const Dashboard = () => {
               placeholder="Search..." 
               className="dashboard-search-bar"
               value={searchQuery} 
-              onChange={(e) => setSearchQuery(e.target.value)}
+              onChange={(e) => setSearchQuery(e.target.value)} // Update search query
             />
           </div>
           <div className="dashboard-user-profile">
@@ -83,12 +99,12 @@ const Dashboard = () => {
           </div>
         </div>
 
+        {/* Main Content Area */}
         <div className="dashboard-main-content">
           <Routes>
-            <Route path="/*" element={<Home />} />
-            <Route path="community" element={<Community searchQuery={searchQuery} />} />
-            {/* Hapus rute untuk Organization */}
-            {/* <Route path="organization" element={<Organization />} /> */}
+            <Route path="/*" element={<Home />} /> {/* Default route */}
+            <Route path="community" element={<Community searchQuery={searchQuery} />} /> {/* Pass searchQuery as a prop */}
+            <Route path="organization" element={<Organization />} />
             <Route path="mbti-test" element={<MBTITest />} />
             <Route path="user-profile" element={<UserProfile />} />
           </Routes>

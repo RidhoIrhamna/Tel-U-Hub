@@ -14,7 +14,7 @@ body {
   margin: 0 auto;
   padding: 20px;
   max-width: 1000px;
-  height: 90vh;
+  height: auto; /* Change height to auto for flexibility */
 }
 
 .home-page h1 {
@@ -37,7 +37,7 @@ body {
   position: relative;
   border-radius: 40px;
   background-color: #fef4f4;
-  height: 100px;
+  height: auto; /* Change height to auto for flexibility */
   padding: 10px 20px;
 }
 
@@ -178,18 +178,65 @@ body {
 
 /* Responsive adjustments */
 @media (max-width: 600px) {
+  .home-page {
+    padding: 10px; /* Reduce padding for mobile */
+  }
+
+  .home-greetings-container {
+    flex-direction: column; /* Stack items vertically on small screens */
+    height: auto; /* Allow height to adjust */
+  }
+
+  .home-greetings-image {
+    width: 100%; /* Make image responsive */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 0; /* Remove margin on small screens */
+    margin-bottom: 10px; /* Space below image */
+  }
+
+  .home-greetings-text {
+    font-size: 24px; /* Adjust font size for smaller screens */
+  }
+
   .home-category-list {
-    flex-direction: column;
-    align-items: center;
+    flex-direction: column; /* Stack categories vertically */
+    align-items: center; /* Center align */
+  }
+
+  .home-category-card {
+    width: 90%; /* Make category cards responsive */
+    margin-bottom: 20px; /* Add space between cards */
   }
 
   .home-news-navigation {
-    flex-direction: column;
+    flex-direction: column; /* Stack navigation buttons */
     align-items: center;
   }
 
   .home-news-navigation button {
-    width: 100%;
-    margin-bottom: 10px;
+    width: 100%; /* Full width buttons */
+    margin-bottom: 10px; /* Space below buttons */
+  }
+
+  .home-news-container {
+    height: auto; /* Allow height to adjust for content */
+  }
+
+  .home-news-content p {
+    font-size: 1em; /* Adjust font size */
+  }
+}
+
+@media (max-width: 480px) {
+  .home-greetings-text {
+    font-size: 20px; /* Further reduce font size for very small screens */
+  }
+
+  .home-category-card h3 {
+    font-size: 1.1em; /* Adjust category card title size */
+  }
+
+  .home-news-content a {
+    font-size: 0.8em; /* Adjust link size */
   }
 }

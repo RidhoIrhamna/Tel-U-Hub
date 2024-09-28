@@ -1,378 +1,218 @@
-import React, { useState, useEffect, useRef } from 'react';
-import './UserProfile.css';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './UserProfile.css'; // Importing the CSS file
 
 const UserProfile = () => {
-  const profileFormRef = useRef(null);
-
-  const [profile, setProfile] = useState({
+  const [userData, setUserData] = useState({
     name: '',
-    jurusan: 'Computer Science',
-    kepribadian: 'Introvert',
-    noTelpon: '',
-    motto: 'Live life to the fullest',
-    interestsList: ['Programming', 'Music'],
-    skills: [
-      { name: 'JavaScript', level: 80 },
-      { name: 'React', level: 70 },
-      { name: 'CSS', level: 90 },
-    ],
+    phone: '',
+    jurusan: localStorage.getItem('jurusan') || '',
+    kepribadian: localStorage.getItem('kepribadian') || '',
+    mottoHidup: localStorage.getItem('mottoHidup') || '',
+    profileImage: '',
   });
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+  const [isEditing, setIsEditing] = useState(false);
+  const navigate = useNavigate();
 
-  const [profilePicture, setProfilePicture] = useState('https://via.placeholder.com/150');
-  const [isEditingProfile, setIsEditingProfile] = useState(false);
-  const [isEditingPicture, setIsEditingPicture] = useState(false);
-  const [isEditingInterestIndex, setIsEditingInterestIndex] = useState(null);
-  const [isEditingSkillIndex, setIsEditingSkillIndex] = useState(null);
-  const [newInterest, setNewInterest] = useState('');
-  const [isAddingSkill, setIsAddingSkill] = useState(false);
-  const [isAddingInterest, setIsAddingInterest] = useState(false);
-  const [newSkill, setNewSkill] = useState({ name: '', level: 0 });
-  const [canEditSkills, setCanEditSkills] = useState(false);
-  const [canEditInterests, setCanEditInterests] = useState(false);
-
-  // Fetch user data from the API
   useEffect(() => {
     const fetchUserData = async () => {
-      const token = localStorage.getItem("authToken");
+      const token = localStorage.getItem('authToken');
+      const userId = localStorage.getItem('userId');
+
       if (!token) {
-        alert("You are not logged in!");
-        window.location.href = ""; // Redirect to login page
+        alert('You are not logged in!');
+        navigate('/login');
         return;
       }
 
       try {
-        const userId = localStorage.getItem("userId");
         const response = await fetch(`https://skillhub-esdlaboratory.loca.lt/api/users/${userId}`, {
-          method: "GET",
-          mode: "cors",
+          method: 'GET',
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
 
-        const data = await response.json();
-
-        if (response.ok) {
-          // Update profile state with fetched data
-          setProfile((prev) => ({
-            ...prev,
-            name: data.name,
-            noTelpon: data.phone,
-          }));
-
-          // Update profile picture
-          const baseUrl = "https://skillhub-esdlaboratory.loca.lt";
-          setProfilePicture(data.profileImage ? `${baseUrl}${data.profileImage}` : 'https://via.placeholder.com/150');
-        } else {
-          alert("Failed to fetch user data");
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.message || 'Failed to fetch user data');
         }
+
+        const data = await response.json();
+        setUserData((prevData) => ({
+          ...prevData,
+          name: data.name || '',
+          phone: data.phone || '',
+          profileImage: data.profileImage
+            ? `https://skillhub-esdlaboratory.loca.lt${data.profileImage}`
+            : '../src/assets/user-profile.jpg',
+        }));
       } catch (error) {
-        console.error("Error fetching user data:", error);
+        setError(error.message);
+        console.error('Error fetching user data:', error);
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchUserData();
-  }, []);
+  }, [navigate]);
 
-  // Profile input handler
-  const handleProfileChange = (e) => {
-    const { name, value } = e.target;
-    setProfile((prev) => ({ ...prev, [name]: value }));
+  const handleUpdateProfile = async (e) => {
+    e.preventDefault();
+    const token = localStorage.getItem('authToken');
+    const userId = localStorage.getItem('userId');
+
+    try {
+      const response = await fetch(`https://skillhub-esdlaboratory.loca.lt/api/users/${userId}`, {
+        method: 'PUT',
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: userData.name,
+          phone: userData.phone,
+          profileImage: userData.profileImage,
+        }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Failed to update user data');
+      }
+
+      // Save jurusan, kepribadian, and mottoHidup to localStorage
+      localStorage.setItem('jurusan', userData.jurusan);
+      localStorage.setItem('kepribadian', userData.kepribadian);
+      localStorage.setItem('mottoHidup', userData.mottoHidup);
+
+      alert('Profile updated successfully!');
+      setIsEditing(false);
+    } catch (error) {
+      setError(error.message);
+      console.error('Error updating user data:', error);
+    }
   };
 
-  // Handle profile picture upload
-  const handleProfilePictureChange = (e) => {
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setUserData({ ...userData, [name]: value });
+  };
+
+  const handleImageChange = (e) => {
     const file = e.target.files[0];
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      setProfilePicture(reader.result); // Set the image as a base64 string for preview
-    };
     if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setUserData({ ...userData, profileImage: reader.result });
+      };
       reader.readAsDataURL(file);
     }
   };
 
-  // Interest modification functions
-  const addInterest = () => {
-    if (newInterest) {
-      setProfile((prev) => ({
-        ...prev,
-        interestsList: [...prev.interestsList, newInterest],
-      }));
-      setNewInterest('');
-      setIsAddingInterest(false);
-    }
-  };
-  
-  const deleteInterest = (index) => {
-    const updatedInterests = profile.interestsList.filter((_, i) => i !== index);
-    setProfile((prev) => ({ ...prev, interestsList: updatedInterests }));
-  };
-
-  const startEditingInterest = (index) => {
-    setIsEditingInterestIndex(index);
-    setNewInterest(profile.interestsList[index]);
-  };
-
-  const saveInterest = () => {
-    const updatedInterests = [...profile.interestsList];
-    updatedInterests[isEditingInterestIndex] = newInterest;
-    setProfile((prev) => ({ ...prev, interestsList: updatedInterests }));
-    setIsEditingInterestIndex(null);
-    setNewInterest(''); 
-  };
-
-  // Skill modification functions
-  const addSkill = () => {
-    if (newSkill.name && newSkill.level) {
-      setProfile((prev) => ({
-        ...prev,
-        skills: [...prev.skills, newSkill],
-      }));
-      setNewSkill({ name: '', level: 0 }); 
-      setIsAddingSkill(false);
-    }
-  };
-
-  const deleteSkill = (index) => {
-    const updatedSkills = profile.skills.filter((_, i) => i !== index);
-    setProfile((prev) => ({ ...prev, skills: updatedSkills }));
-  };
-
-  const startEditingSkill = (index) => {
-    setIsEditingSkillIndex(index);
-    setNewSkill(profile.skills[index]);
-  };
-
-  const saveSkill = () => {
-    const updatedSkills = [...profile.skills];
-    updatedSkills[isEditingSkillIndex] = newSkill;
-    setProfile((prev) => ({ ...prev, skills: updatedSkills }));
-    setIsEditingSkillIndex(null);
-    setNewSkill({ name: '', level: 0 }); 
-  };
-
-  // Toggle editing modes
-  const handleEditToggle = () => {
-    setIsEditingProfile(!isEditingProfile);
-    setIsEditingPicture(!isEditingPicture);
-  };
+  if (loading) {
+    return <p>Loading...</p>;
+  }
 
   return (
-    <div className="user-profile-page">
-      <h1>User Profile</h1>
-      {/* Profile container */}
-      <div className="profile-container">
-        <div className="profile-left">
-          <h2>
-            Profile{' '}
-            <span className="edit-icon" onClick={handleEditToggle}>✏️</span>
-          </h2>
-          <div>
-            <img
-              src={profilePicture}
-              alt="Profile"
-              className="profile-picture"
+    <div className="userProfile-container">
+      <h2 className="userProfile-title">User Profile</h2>
+      {error && <p className="userProfile-error">{error}</p>}
+      
+      <form onSubmit={handleUpdateProfile} className="userProfile-form">
+        <div className="userProfile-image-container">
+          <img src={userData.profileImage} alt="Profile" className="userProfile-image" />
+          {isEditing && (
+            <input type="file" accept="image/*" className="userProfile-input-file" onChange={handleImageChange} />
+          )}
+        </div>
+  
+        <div className="userProfile-input-group">
+          <label className="userProfile-label">Name:</label>
+          {isEditing ? (
+            <input
+              type="text"
+              name="name"
+              value={userData.name}
+              onChange={handleInputChange}
+              className="userProfile-input"
             />
-            {isEditingPicture && (
-              <>
-                <label htmlFor="profile-picture-input" className="profile-picture-label">
-                  Ubah Foto
-                </label>
-                <input
-                  id="profile-picture-input"
-                  type="file"
-                  accept="image/*"
-                  onChange={handleProfilePictureChange}
-                  className="profile-picture-input"
-                />
-              </>
-            )}
-          </div>
-
-          <div className="profile-info" ref={profileFormRef}>
-            {isEditingProfile ? (
-              <>
-                <p>
-                  <strong>Nama:</strong>
-                  <input
-                    type="text"
-                    name="name"
-                    value={profile.name}
-                    onChange={handleProfileChange}
-                  />
-                </p>
-                <p>
-                  <strong>Jurusan:</strong>
-                  <input
-                    type="text"
-                    name="jurusan"
-                    value={profile.jurusan}
-                    onChange={handleProfileChange}
-                  />
-                </p>
-                <p>
-                  <strong>Kepribadian:</strong>
-                  <input
-                    type="text"
-                    name="kepribadian"
-                    value={profile.kepribadian}
-                    onChange={handleProfileChange}
-                  />
-                </p>
-                <p>
-                  <strong>No Telpon:</strong>
-                  <input
-                    type="text"
-                    name="noTelpon"
-                    value={profile.noTelpon}
-                    onChange={handleProfileChange}
-                  />
-                </p>
-                <p>
-                  <strong>Motto Hidup:</strong>
-                  <input
-                    type="text"
-                    name="motto"
-                    value={profile.motto}
-                    onChange={handleProfileChange}
-                  />
-                </p>
-                <button onClick={() => setIsEditingProfile(false)}>Simpan</button>
-              </>
-            ) : (
-              <>
-                <p><strong>Nama:</strong> {profile.name}</p>
-                <p><strong>Jurusan:</strong> {profile.jurusan}</p>
-                <p><strong>Kepribadian:</strong> {profile.kepribadian}</p>
-                <p><strong>No Telpon:</strong> {profile.noTelpon}</p>
-                <p><strong>Motto Hidup:</strong> {profile.motto}</p>
-              </>
-            )}
-          </div>
+          ) : (
+            <span className="userProfile-display">{userData.name}</span>
+          )}
         </div>
-
-        {/* Interest container */}
-        <div className="profile-right">
-          <div className="interest-container">
-            <h2>
-              Interest{' '}
-              <span className="edit-icon" onClick={() => setCanEditInterests(!canEditInterests)}>✏️</span>
-            </h2>
-            {profile.interestsList.length > 0 && (
-              <ul>
-                {profile.interestsList.map((interest, index) => (
-                  <li key={index}>
-                    {isEditingInterestIndex === index && canEditInterests ? (
-                      <>
-                        <input
-                          type="text"
-                          value={newInterest}
-                          onChange={(e) => setNewInterest(e.target.value)}
-                        />
-                        <button onClick={saveInterest}>Simpan</button>
-                      </>
-                    ) : (
-                      <>
-                        {interest}
-                        {canEditInterests && (
-                          <>
-                            <button onClick={() => startEditingInterest(index)}>✏️</button>
-                            <button onClick={() => deleteInterest(index)}>Delete</button>
-                          </>
-                        )}
-                      </>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            )}
-
-            {canEditInterests && (
-              <>
-                {!isAddingInterest ? (
-                  <button onClick={() => setIsAddingInterest(true)}>Tambah Interest</button>
-                ) : (
-                  <>
-                    <input
-                      type="text"
-                      value={newInterest}
-                      onChange={(e) => setNewInterest(e.target.value)}
-                    />
-                    <button onClick={addInterest}>Tambah</button>
-                  </>
-                )}
-              </>
-            )}
-          </div>
-
-          {/* Skills container */}
-          <div className="skills-container">
-            <h2>
-              Skills{' '}
-              <span className="edit-icon" onClick={() => setCanEditSkills(!canEditSkills)}>✏️</span>
-            </h2>
-            {profile.skills.length > 0 && (
-              <ul>
-                {profile.skills.map((skill, index) => (
-                  <li key={index}>
-                    {isEditingSkillIndex === index && canEditSkills ? (
-                      <>
-                        <input
-                          type="text"
-                          value={newSkill.name}
-                          onChange={(e) => setNewSkill({ ...newSkill, name: e.target.value })}
-                        />
-                        <input
-                          type="number"
-                          value={newSkill.level}
-                          onChange={(e) => setNewSkill({ ...newSkill, level: e.target.value })}
-                        />
-                        <button onClick={saveSkill}>Simpan</button>
-                      </>
-                    ) : (
-                      <>
-                        {skill.name} - Level: {skill.level}
-                        {canEditSkills && (
-                          <>
-                            <button onClick={() => startEditingSkill(index)}>✏️</button>
-                            <button onClick={() => deleteSkill(index)}>Delete</button>
-                          </>
-                        )}
-                      </>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            )}
-
-            {canEditSkills && (
-              <>
-                {!isAddingSkill ? (
-                  <button onClick={() => setIsAddingSkill(true)}>Tambah Skill</button>
-                ) : (
-                  <>
-                    <input
-                      type="text"
-                      value={newSkill.name}
-                      onChange={(e) => setNewSkill({ ...newSkill, name: e.target.value })}
-                    />
-                    <input
-                      type="number"
-                      value={newSkill.level}
-                      onChange={(e) => setNewSkill({ ...newSkill, level: e.target.value })}
-                    />
-                    <button onClick={addSkill}>Tambah</button>
-                  </>
-                )}
-              </>
-            )}
-          </div>
+  
+        <div className="userProfile-input-group">
+          <label className="userProfile-label">Phone:</label>
+          {isEditing ? (
+            <input
+              type="text"
+              name="phone"
+              value={userData.phone}
+              onChange={handleInputChange}
+              className="userProfile-input"
+            />
+          ) : (
+            <span className="userProfile-display">{userData.phone}</span>
+          )}
         </div>
-      </div>
+  
+        <div className="userProfile-input-group">
+          <label className="userProfile-label">Jurusan:</label>
+          {isEditing ? (
+            <input
+              type="text"
+              name="jurusan"
+              value={userData.jurusan}
+              onChange={handleInputChange}
+              className="userProfile-input"
+            />
+          ) : (
+            <span className="userProfile-display">{userData.jurusan}</span>
+          )}
+        </div>
+  
+        <div className="userProfile-input-group">
+          <label className="userProfile-label">Kepribadian:</label>
+          {isEditing ? (
+            <input
+              type="text"
+              name="kepribadian"
+              value={userData.kepribadian}
+              onChange={handleInputChange}
+              className="userProfile-input"
+            />
+          ) : (
+            <span className="userProfile-display">{userData.kepribadian}</span>
+          )}
+        </div>
+  
+        <div className="userProfile-input-group">
+          <label className="userProfile-label">Motto Hidup:</label>
+          {isEditing ? (
+            <input
+              type="text"
+              name="mottoHidup"
+              value={userData.mottoHidup}
+              onChange={handleInputChange}
+              className="userProfile-input"
+            />
+          ) : (
+            <span className="userProfile-display">{userData.mottoHidup}</span>
+          )}
+        </div>
+  
+        <button type="button" className="userProfile-button" onClick={() => setIsEditing(!isEditing)}>
+          {isEditing ? 'Cancel' : 'Edit Profile'}
+        </button>
+  
+        {isEditing && <button type="submit" className="userProfile-button">Save Changes</button>}
+      </form>
     </div>
   );
 };
 
 export default UserProfile;
- 

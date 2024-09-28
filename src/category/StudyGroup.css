@@ -5,7 +5,6 @@
     margin: 20px auto;
     border-radius: 25px;
     border-style: none;
-
     padding: 20px;
     background-color: #ffffff; /* Warna latar yang lebih tenang */
 }
@@ -127,4 +126,100 @@
 .study-group-category-filter-row span.active {
     background-color: #e05b59; /* Warna hijau untuk kategori aktif */
     color: #fff;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .study-group-page {
+        padding: 15px; /* Reduce padding for smaller screens */
+    }
+
+    .study-group-page h2 {
+        font-size: 2rem; /* Smaller font size for h2 */
+    }
+
+    .study-group-page h3 {
+        font-size: 1.4rem; /* Smaller font size for h3 */
+    }
+
+    .study-group-page h4 {
+        font-size: 1rem; /* Smaller font size for h4 */
+    }
+
+    .study-group-page p {
+        font-size: 0.9rem; /* Smaller font size for paragraph */
+    }
+
+    .study-group-page button {
+        font-size: 0.9rem; /* Smaller font size for buttons */
+    }
+
+    .study-group-category-filter-row span {
+        font-size: 0.9rem; /* Smaller font size for filter spans */
+    }
+}
+
+@media (max-width: 600px) {
+    .study-group-page {
+        padding: 10px; /* Further reduce padding */
+    }
+
+    .study-group-page h2 {
+        font-size: 1.8rem; /* Further reduce font size for h2 */
+    }
+
+    .study-group-page h3 {
+        font-size: 1.2rem; /* Further reduce font size for h3 */
+    }
+
+    .study-group-page h4 {
+        font-size: 0.9rem; /* Further reduce font size for h4 */
+    }
+
+    .study-group-page p {
+        font-size: 0.8rem; /* Further reduce font size for paragraph */
+    }
+
+    .study-group-page img {
+        height: 150px; /* Reduce image height */
+    }
+
+    .study-group-category-filter-row {
+        flex-direction: column; /* Stack filter items vertically */
+        align-items: center; /* Center align filter items */
+    }
+
+    .study-group-category-filter-row span {
+        margin: 5px 0; /* Add margin between filter items */
+    }
+}
+
+@media (max-width: 400px) {
+    .study-group-page {
+        padding: 5px; /* Minimal padding for very small screens */
+    }
+
+    .study-group-page h2 {
+        font-size: 1.5rem; /* Further reduce font size for h2 */
+    }
+
+    .study-group-page h3 {
+        font-size: 1rem; /* Further reduce font size for h3 */
+    }
+
+    .study-group-page h4 {
+        font-size: 0.8rem; /* Further reduce font size for h4 */
+    }
+
+    .study-group-page p {
+        font-size: 0.7rem; /* Further reduce font size for paragraph */
+    }
+
+    .study-group-page img {
+        height: 120px; /* Further reduce image height */
+    }
+
+    .study-group-category-filter-row span {
+        padding: 5px; /* Smaller padding for filter items */
+    }
 }

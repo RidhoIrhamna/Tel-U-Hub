@@ -126,3 +126,99 @@
     background-color: #e05b59;
     color: #fff;
 }
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .ukm-page {
+        padding: 15px; /* Reduce padding for smaller screens */
+    }
+
+    .ukm-page h2 {
+        font-size: 2rem; /* Smaller font size for h2 */
+    }
+
+    .ukm-page h3 {
+        font-size: 1.4rem; /* Smaller font size for h3 */
+    }
+
+    .ukm-page h4 {
+        font-size: 1rem; /* Smaller font size for h4 */
+    }
+
+    .ukm-page p {
+        font-size: 0.9rem; /* Smaller font size for paragraph */
+    }
+
+    .ukm-page button {
+        font-size: 0.9rem; /* Smaller font size for buttons */
+    }
+
+    .ukm-category-filter-row span {
+        font-size: 0.9rem; /* Smaller font size for filter spans */
+    }
+}
+
+@media (max-width: 600px) {
+    .ukm-page {
+        padding: 10px; /* Further reduce padding */
+    }
+
+    .ukm-page h2 {
+        font-size: 1.8rem; /* Further reduce font size for h2 */
+    }
+
+    .ukm-page h3 {
+        font-size: 1.2rem; /* Further reduce font size for h3 */
+    }
+
+    .ukm-page h4 {
+        font-size: 0.9rem; /* Further reduce font size for h4 */
+    }
+
+    .ukm-page p {
+        font-size: 0.8rem; /* Further reduce font size for paragraph */
+    }
+
+    .ukm-page img {
+        height: 150px; /* Reduce image height */
+    }
+
+    .ukm-category-filter-row {
+        flex-direction: column; /* Stack filter items vertically */
+        align-items: center; /* Center align filter items */
+    }
+
+    .ukm-category-filter-row span {
+        margin: 5px 0; /* Add margin between filter items */
+    }
+}
+
+@media (max-width: 400px) {
+    .ukm-page {
+        padding: 5px; /* Minimal padding for very small screens */
+    }
+
+    .ukm-page h2 {
+        font-size: 1.5rem; /* Further reduce font size for h2 */
+    }
+
+    .ukm-page h3 {
+        font-size: 1rem; /* Further reduce font size for h3 */
+    }
+
+    .ukm-page h4 {
+        font-size: 0.8rem; /* Further reduce font size for h4 */
+    }
+
+    .ukm-page p {
+        font-size: 0.7rem; /* Further reduce font size for paragraph */
+    }
+
+    .ukm-page img {
+        height: 120px; /* Further reduce image height */
+    }
+
+    .ukm-category-filter-row span {
+        padding: 5px; /* Smaller padding for filter items */
+    }
+}

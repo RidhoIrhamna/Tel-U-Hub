@@ -99,38 +99,76 @@
   background-color: #7a3230;
 }
 
-/* 
-.bem-registration-details,
-.bem-registration-form {
-  margin-bottom: 20px;
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .bem-header-text {
+    font-size: 20px; /* Adjusted font size for smaller screens */
+  }
+
+  .bem-header-container {
+    flex-direction: column; /* Stack header elements vertically */
+    align-items: center; /* Center align elements */
+    text-align: center; /* Center text */
+  }
+
+  .bem-header-logo {
+    margin-right: 0; /* Remove right margin */
+    margin-bottom: 10px; /* Add margin below logo */
+  }
+
+  .bem-social-links {
+    flex-direction: column; /* Stack social links vertically */
+    gap: 10px; /* Adjust gap for vertical layout */
+  }
+
+  .bem-achievement-card {
+    min-width: 200px; /* Adjust minimum width for smaller screens */
+  }
+
+  .bem-section-title {
+    font-size: 18px; /* Smaller font size for section titles */
+  }
+
+  .bem-button {
+    padding: 8px 12px; /* Adjust padding for buttons */
+    font-size: 14px; /* Smaller font size for buttons */
+  }
 }
 
-.bem-registration-section {
-  margin-bottom: 20px;
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 20px;
-  background-color: #fef4f4;
+@media (max-width: 600px) {
+  .bem-page {
+    padding: 10px; /* Reduce padding */
+  }
+
+  .bem-header-text {
+    font-size: 18px; /* Further reduce font size */
+  }
+
+  .bem-achievement-list {
+    flex-direction: column; /* Stack achievement cards vertically */
+    gap: 10px; /* Adjust gap for vertical layout */
+  }
+
+  .bem-achievement-card {
+    min-width: auto; /* Remove minimum width restriction */
+    width: 100%; /* Full width for cards */
+  }
+
+  .bem-button {
+    width: 100%; /* Full width for buttons */
+  }
 }
 
-.bem-registration-intro {
-  margin-bottom: 20px;
-}
+@media (max-width: 400px) {
+  .bem-header-text {
+    font-size: 16px; /* Further reduce font size */
+  }
 
-.bem-form-group {
-  margin-bottom: 15px;
-}
+  .bem-social-links a {
+    font-size: 20px; /* Smaller font size for social links */
+  }
 
-input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  margin-bottom: 5px;
+  .bem-button {
+    padding: 6px 10px; /* Smaller padding for buttons */
+  }
 }
-
-.bem-procedure-list {
-  padding-left: 40px;
-}
-*/
- 

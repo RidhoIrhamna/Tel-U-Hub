@@ -1,7 +1,7 @@
 /* Other existing styles */
 .community-page {
     max-width: 1200px;
-    font-style: Poppins, sans-serif;
+    font-family: Poppins, sans-serif; /* Corrected font-family property */
     margin: 20px auto;
     border-radius: 25px;
     border-color: #fef4f4;
@@ -128,4 +128,76 @@
     color: #fff;
 }
 
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .community-page {
+        padding: 15px; /* Reduce padding for mobile */
+    }
 
+    .community-page h2 {
+        font-size: 2rem; /* Adjust font size for headings */
+    }
+
+    .community-page ul {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust grid for smaller screens */
+        grid-gap: 15px; /* Reduce grid gap */
+    }
+
+    .community-page li {
+        padding: 15px; /* Reduce padding within list items */
+    }
+
+    .community-page h3 {
+        font-size: 1.3rem; /* Adjust heading sizes */
+    }
+
+    .community-page p {
+        font-size: 0.9rem; /* Adjust paragraph sizes */
+    }
+
+    .category-filter-row {
+        flex-direction: column; /* Stack filter items vertically */
+        align-items: center; /* Center align */
+    }
+
+    .category-filter-row span {
+        margin-bottom: 10px; /* Add space below filter items */
+        width: 100%; /* Full width for filter items */
+        text-align: center; /* Center align text */
+    }
+}
+
+@media (max-width: 480px) {
+    .community-page {
+        margin: 10px; /* Reduce margin for very small screens */
+    }
+
+    .community-page h2 {
+        font-size: 1.8rem; /* Further adjust heading sizes */
+    }
+
+    .community-page li {
+        padding: 10px; /* Further reduce padding within list items */
+    }
+
+    .community-page h3 {
+        font-size: 1.2rem; /* Adjust heading sizes */
+    }
+
+    .community-page h4 {
+        font-size: 0.9rem; /* Adjust heading sizes */
+    }
+
+    .community-page p {
+        font-size: 0.8rem; /* Adjust paragraph sizes */
+    }
+
+    .community-page img {
+        height: 150px; /* Adjust image height for smaller screens */
+    }
+
+    .community-page button {
+        padding: 8px 15px; /* Reduce button padding */
+        font-size: 0.9rem; /* Adjust button text size */
+    }
+}

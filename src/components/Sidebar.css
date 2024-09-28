@@ -1,5 +1,5 @@
 .sidebar {
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
     width: 200px;
     background: linear-gradient(90deg, #e05b59 47%, #7a3230 100%);
     padding: 20px;
@@ -9,6 +9,7 @@
     height: 100vh;
     overflow-y: auto;
     z-index: 2;
+    transition: width 0.3s ease; /* Smooth transition for width changes */
 }
 
 .sidebar-logo {
@@ -33,7 +34,7 @@
 
 .sidebar ul li .oval-button {
     display: flex;
-    align-items: center; /* Pusatkan teks dan ikon secara vertikal */
+    align-items: center; /* Center text and icon vertically */
     padding: 10px;
     width: 100%;
     border-radius: 50px 0 0 50px;
@@ -51,11 +52,12 @@
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.sidebar ul li .oval-button:hover, .oval-button:focus {
+.sidebar ul li .oval-button:hover,
+.sidebar ul li .oval-button:focus {
     outline: none;
     background-color: rgb(255, 255, 255);
     color: #000000;
-    width: 113%;
+    width: 113%; /* Slightly expand on hover */
 }
 
 .sidebar-footer {
@@ -120,5 +122,20 @@
 
     .sidebar ul li .icon {
         font-size: 12px;
+    }
+}
+
+/* Further enhancements for very small screens */
+@media (max-width: 300px) {
+    .sidebar {
+        width: 60px; /* Reduce width further */
+    }
+
+    .sidebar ul li .oval-button {
+        padding: 2px; /* Further reduce padding */
+    }
+
+    .sidebar-footer {
+        padding: 10px; /* Reduce footer padding */
     }
 }

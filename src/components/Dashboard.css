@@ -94,3 +94,82 @@
   background-color: white; /* White background for main content */
   flex-grow: 1; /* Allow main content to grow */
 }
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .dashboard-content {
+    margin-left: 150px; /* Adjust margin for smaller screens */
+  }
+
+  .dashboard-search-bar-container {
+    max-width: 70%; /* Allow search bar to be wider */
+  }
+
+  .dashboard-user-profile-pic {
+    width: 50px; /* Reduce profile picture size */
+    height: 50px; /* Reduce profile picture size */
+  }
+
+  .dashboard-user-name {
+    font-size: 16px; /* Smaller font size for user name */
+  }
+}
+
+@media (max-width: 600px) {
+  .dashboard-content {
+    margin-left: 100px; /* Further reduce margin for even smaller screens */
+  }
+
+  .dashboard-search-bar {
+    padding: 8px 30px; /* Reduce padding in search bar */
+    font-size: 14px; /* Smaller font size */
+  }
+
+  .dashboard-search-icon {
+    font-size: 16px; /* Smaller icon size */
+  }
+
+  .dashboard-user-profile-pic {
+    width: 40px; /* Further reduce profile picture size */
+    height: 40px; /* Further reduce profile picture size */
+  }
+
+  .dashboard-user-name {
+    font-size: 14px; /* Further reduce font size */
+  }
+
+  .dashboard-logout-button {
+    padding: 8px 16px; /* Reduce button padding */
+  }
+}
+
+@media (max-width: 400px) {
+  .dashboard-content {
+    margin-left: 0; /* Remove margin for very small screens */
+  }
+
+  .dashboard-search-bar-container {
+    max-width: 90%; /* Allow search bar to be almost full width */
+  }
+
+  .dashboard-search-bar {
+    padding: 6px 20px; /* Further reduce padding */
+  }
+
+  .dashboard-search-icon {
+    font-size: 14px; /* Further reduce icon size */
+  }
+
+  .dashboard-user-profile-pic {
+    width: 35px; /* Further reduce profile picture size */
+    height: 35px; /* Further reduce profile picture size */
+  }
+
+  .dashboard-user-name {
+    font-size: 12px; /* Further reduce font size */
+  }
+
+  .dashboard-logout-button {
+    padding: 6px 12px; /* Further reduce button padding */
+  }
+}

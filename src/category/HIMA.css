@@ -127,3 +127,99 @@
     background-color: #e05b59;
     color: #fff;
 }
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .hima-page {
+        padding: 15px; /* Reduce padding for smaller screens */
+    }
+
+    .hima-page h2 {
+        font-size: 2rem; /* Smaller font size for h2 */
+    }
+
+    .hima-page h3 {
+        font-size: 1.4rem; /* Smaller font size for h3 */
+    }
+
+    .hima-page h4 {
+        font-size: 1rem; /* Smaller font size for h4 */
+    }
+
+    .hima-page p {
+        font-size: 0.9rem; /* Smaller font size for paragraph */
+    }
+
+    .hima-page button {
+        font-size: 0.9rem; /* Smaller font size for buttons */
+    }
+
+    .category-filter-row span {
+        font-size: 0.9rem; /* Smaller font size for filter spans */
+    }
+}
+
+@media (max-width: 600px) {
+    .hima-page {
+        padding: 10px; /* Further reduce padding */
+    }
+
+    .hima-page h2 {
+        font-size: 1.8rem; /* Further reduce font size for h2 */
+    }
+
+    .hima-page h3 {
+        font-size: 1.2rem; /* Further reduce font size for h3 */
+    }
+
+    .hima-page h4 {
+        font-size: 0.9rem; /* Further reduce font size for h4 */
+    }
+
+    .hima-page p {
+        font-size: 0.8rem; /* Further reduce font size for paragraph */
+    }
+
+    .hima-page img {
+        height: 150px; /* Reduce image height */
+    }
+
+    .category-filter-row {
+        flex-direction: column; /* Stack filter items vertically */
+        align-items: center; /* Center align filter items */
+    }
+
+    .category-filter-row span {
+        margin: 5px 0; /* Add margin between filter items */
+    }
+}
+
+@media (max-width: 400px) {
+    .hima-page {
+        padding: 5px; /* Minimal padding for very small screens */
+    }
+
+    .hima-page h2 {
+        font-size: 1.5rem; /* Further reduce font size for h2 */
+    }
+
+    .hima-page h3 {
+        font-size: 1rem; /* Further reduce font size for h3 */
+    }
+
+    .hima-page h4 {
+        font-size: 0.8rem; /* Further reduce font size for h4 */
+    }
+
+    .hima-page p {
+        font-size: 0.7rem; /* Further reduce font size for paragraph */
+    }
+
+    .hima-page img {
+        height: 120px; /* Further reduce image height */
+    }
+
+    .category-filter-row span {
+        padding: 5px; /* Smaller padding for filter items */
+    }
+}

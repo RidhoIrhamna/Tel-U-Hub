@@ -28,7 +28,7 @@ const ukmGroups = [
     description: 'Nippon Bunkan Bu (NBB) adalah UKM mahasiswa yang bergerak di bidang scene musik.',
     photo: UKMBand,
     link: 'https://www.instagram.com/ukmbandunitel',
-    category: 'Bisnis',
+    category: 'Kesenian',
   },
   // Tambahkan grup UKM lainnya di sini
 ];

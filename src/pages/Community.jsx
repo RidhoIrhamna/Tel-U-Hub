@@ -58,8 +58,9 @@ const communities = [
   },
 ];
 
-const Community = ({ searchQuery }) => {
+const Community = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [searchQuery, setSearchQuery] = useState('');
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
@@ -78,6 +79,15 @@ const Community = ({ searchQuery }) => {
     <div className="community-page">
       <h2>Community</h2>
       <p>Join these communities to connect with like-minded people! (Bandung only, still in development)</p>
+
+      {/* Search Input */}
+      <input
+        type="text"
+        placeholder="Search communities..."
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+        className="community-search-input"
+      />
 
       <div className="category-filter-row">
         <span

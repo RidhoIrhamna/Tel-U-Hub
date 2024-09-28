@@ -63,13 +63,13 @@ const Dashboard = () => {
     fetchUserData();
   }, [navigate]);
 
-  // if (loading) {
-  //   return <div>Loading user data...</div>; // Loading message
-  // }
+  if (loading) {
+    return <div>Loading user data...</div>; // Loading message
+  }
 
-  // if (error) {
-  //   return <div>Error: {error}</div>; // Display error if fetching fails
-  // }
+  if (error) {
+    return <div>Error: {error}</div>; // Display error if fetching fails
+  }
 
   return (
     <div className="dashboard-container">

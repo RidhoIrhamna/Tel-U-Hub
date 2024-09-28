@@ -128,6 +128,15 @@
     color: #fff;
 }
 
+.study-group-search-input {
+    margin: 20px 0;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    width: 100%; /* Full width */
+    max-width: 400px; /* Optional: limit the max width */
+  }
+  
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
     .study-group-page {

@@ -86,25 +86,25 @@ const SignUpPage = () => {
     return (
         <div className="signup-container">
             {/* Logo */}
-            <img src="../src/assets/logo app.png" alt="Logo" className="app-logo" />
+            <img src="../src/assets/logo app.png" alt="Logo" className="signup-app-logo" />
 
             {/* Gambar vector di background */}
-            <img src="../src/assets/login vector.png" alt="Vector" className="vector-bg" />
+            <img src="../src/assets/login vector.png" alt="Vector" className="signup-vector-bg" />
 
             {/* Konten */}
-            <div className="content">
-                <div className="left-content">
-                    <div className="promo-section">
+            <div className="signup-content">
+                <div className="signup-left-content">
+                    <div className="signup-promo-section">
                         <h1>Join us and fuel your passion!</h1>
-                        <img src="../src/assets/login img.png" alt="Decoration" className="decoration-img" />
+                        <img src="../src/assets/login img.png" alt="Decoration" className="signup-decoration-img" />
                     </div>
                 </div>
 
-                <div className="right-content">
-                    <div className="form-section">
+                <div className="signup-right-content">
+                    <div className="signup-form-section">
                         <h2>Create your account</h2>
                         <form className="signup-form" onSubmit={handleSubmit}>
-                            <div className="form-group">
+                            <div className="signup-form-group">
                                 <label>Name:</label>
                                 <input 
                                     type="text" 
@@ -115,7 +115,7 @@ const SignUpPage = () => {
                                     required 
                                 />
                             </div>
-                            <div className="form-group">
+                            <div className="signup-form-group">
                                 <label>Email:</label>
                                 <input 
                                     type="email" 
@@ -126,7 +126,7 @@ const SignUpPage = () => {
                                     required 
                                 />
                             </div>
-                            <div className="form-group">
+                            <div className="signup-form-group">
                                 <label>Phone Number:</label>
                                 <input 
                                     type="tel" 
@@ -137,7 +137,7 @@ const SignUpPage = () => {
                                     required 
                                 />
                             </div>
-                            <div className="form-group password-group">
+                            <div className="signup-form-group signup-password-group">
                                 <label>Password:</label>
                                 <input 
                                     type={passwordVisible ? "text" : "password"} 
@@ -148,18 +148,18 @@ const SignUpPage = () => {
                                     required 
                                 />
                                 <span 
-                                    className="password-toggle-icon" 
+                                    className="signup-password-toggle-icon" 
                                     onClick={togglePasswordVisibility}
                                 >
                                     {passwordVisible ? <FaEyeSlash /> : <FaEye />}
                                 </span>
                             </div>
-                            <button type="submit" className="btn-signup" disabled={isLoading}>
+                            <button type="submit" className="signup-btn-signup" disabled={isLoading}>
                                 {isLoading ? 'Signing Up...' : 'Sign Up'}
                             </button>
                         </form>
-                        {error && <p className="error-message">{error}</p>}
-                        <p className="login-text">
+                        {error && <p className="signup-error-message">{error}</p>}
+                        <p className="signup-login-text">
                             Already have an account? <a href="/">Login</a>
                         </p>
                     </div>

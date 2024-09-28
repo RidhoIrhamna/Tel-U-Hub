@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import "./StudyGroup.css"; 
-// Uncomment these imports when images are available
 import ESD from '../assets/esd.jpeg';
 import SAG from '../assets/sag.jpeg';
 import Search from '../assets/search.jpeg';
@@ -9,7 +8,7 @@ const studyGroups = [
   {
     id: 1,
     name: 'Enterprise System Development Study Group',
-    description: 'This group focus on technology field and how to development best digital product.',
+    description: 'This group focuses on technology field and how to develop the best digital product.',
     photo: ESD,
     link: 'https://www.instagram.com/esducation_/',
     category: 'FRI',
@@ -17,7 +16,7 @@ const studyGroups = [
   {
     id: 2,
     name: 'System Architecture and Governance Study Group',
-    description: 'This group focus on technology field and how to achieve best digital product.',
+    description: 'This group focuses on technology field and how to achieve the best digital product.',
     photo: SAG,
     link: 'https://www.instagram.com/sagstudygroup/',
     category: 'FRI',
@@ -25,7 +24,7 @@ const studyGroups = [
   {
     id: 3,
     name: 'Search Telkom University Study Group',
-    description: 'This group focus on Student’s Activities for Research and Competition Handling.',
+    description: 'This group focuses on Student’s Activities for Research and Competition Handling.',
     photo: Search,
     link: 'https://www.instagram.com/searchtelkomunv/',
     category: 'Umum',
@@ -35,6 +34,7 @@ const studyGroups = [
 
 const StudyGroup = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [searchQuery, setSearchQuery] = useState('');
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
@@ -43,13 +43,23 @@ const StudyGroup = () => {
   const filteredStudyGroups = studyGroups.filter((group) => {
     const matchesCategory =
       selectedCategory === 'all' || group.category === selectedCategory;
-    return matchesCategory;
+    const matchesSearch = group.name.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesCategory && matchesSearch;
   });
 
   return (
     <div className="study-group-page">
       <h2>Study Groups</h2>
       <p>Join one of these study groups to enhance your learning and collaborate with peers! (Still under development)</p>
+
+      {/* Search Input */}
+      <input
+        type="text"
+        placeholder="Search study groups..."
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+        className="study-group-search-input"
+      />
 
       <div className="category-filter-row">
         <span

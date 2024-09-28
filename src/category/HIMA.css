@@ -98,6 +98,15 @@
     color: inherit;
 }
 
+.hima-search-input {
+    margin: 20px 0;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    width: 100%; /* Full width */
+    max-width: 400px; /* Optional: limit the max width */
+  }
+
 /* Category filter row styling */
 .category-filter-row {
     display: flex;

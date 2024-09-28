@@ -25,22 +25,18 @@ const LoginPage = () => {
       });
 
       if (response.status === 200 && response.data.token) {
-        // MENYIMPAN authToken DAN userId KE localStorage
         localStorage.setItem('authToken', response.data.token);
-        localStorage.setItem('userId', response.data.user.id); // Menyimpan userId setelah login
-        
-        // Tampilkan notifikasi saat login berhasil
+        localStorage.setItem('userId', response.data.user.id);
+
         toast.success('Login successful! Redirecting to dashboard...', {
           position: "top-right",
-          autoClose: 3000, // Otomatis hilang dalam 3 detik
+          autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
           draggable: true,
-          progress: undefined,
         });
-        
-        // Redirect ke dashboard setelah 1.5 detik
+
         setTimeout(() => {
           navigate('/dashboard');
         }, 1500);
@@ -57,27 +53,26 @@ const LoginPage = () => {
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
-        progress: undefined,
       });
     }
   };
 
   return (
-    <div className="login-container">
-      <img src={logoApp} alt="Logo" className="app-logo" />
-      <img src={vectorBg} alt="Vector" className="vector-bg" />
-      <div className="content">
-        <div className="left-content">
-          <div className="promo-section">
+    <div className="unique-login-container">
+      <img src={logoApp} alt="Logo" className="unique-app-logo" />
+      <img src={vectorBg} alt="Vector" className="unique-vector-bg" />
+      <div className="unique-content">
+        <div className="unique-left-content">
+          <div className="unique-promo-section">
             <h1>Find your place, Fuel your passion.</h1>
-            <img src={decorationImg} alt="Decoration" className="decoration-img" />
+            <img src={decorationImg} alt="Decoration" className="unique-decoration-img" />
           </div>
         </div>
-        <div className="right-content">
-          <div className="form-section">
+        <div className="unique-right-content">
+          <div className="unique-form-section">
             <h2>Start your journey here.</h2>
-            <form className="login-form" onSubmit={handleLogin}>
-              <div className="form-group">
+            <form className="unique-login-form" onSubmit={handleLogin}>
+              <div className="unique-form-group">
                 <label>Email:</label>
                 <input
                   type="email"
@@ -87,7 +82,7 @@ const LoginPage = () => {
                   required
                 />
               </div>
-              <div className="form-group password-group">
+              <div className="unique-form-group unique-password-group">
                 <label>Password:</label>
                 <input
                   type="password"
@@ -97,17 +92,16 @@ const LoginPage = () => {
                   required
                 />
               </div>
-              {errorMessage && <p className="error-message">{errorMessage}</p>}
-              <button type="submit" className="btn-login">Login</button>
+              {errorMessage && <p className="unique-error-message">{errorMessage}</p>}
+              <button type="submit" className="unique-btn-login">Login</button>
             </form>
-            <p className="signup-text">
+            <p className="unique-signup-text">
               Don't have an account? <a href="/signup">Sign Up</a>
             </p>
           </div>
         </div>
       </div>
 
-      {/* Tambahkan ToastContainer di mana saja di dalam komponen */}
       <ToastContainer />
     </div>
   );

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import "./UKM.css"; 
-// Uncomment these imports when images are available
 import NBB from '../assets/NBB.JPEG';
 import UKMBand from '../assets/UKMBand.png';
 import Aksara from '../assets/aksara.png';
@@ -9,14 +8,14 @@ const ukmGroups = [
   {
     id: 1,
     name: 'NBB (Nippon Bunkan Bu)',
-    description: 'Nippon Bunkan Bu (NBB) adalah UKM mahasiswa yang bergerak di bidang kebudayaan jepang.',
+    description: 'Nippon Bunkan Bu (NBB) adalah UKM mahasiswa yang bergerak di bidang kebudayaan Jepang.',
     photo: NBB,
     link: 'https://www.instagram.com/nbb.unitel',
     category: 'Kesenian',
   },
   {
     id: 2,
-    name: 'Aksara Jurnalistik ',
+    name: 'Aksara Jurnalistik',
     description: 'Aksara Jurnalistik adalah UKM mahasiswa yang bergerak di bidang jurnalistik dan publikasi.',
     photo: Aksara,
     link: 'https://www.instagram.com/aksara_tu',
@@ -35,6 +34,7 @@ const ukmGroups = [
 
 const UKM = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [searchQuery, setSearchQuery] = useState('');
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
@@ -43,13 +43,23 @@ const UKM = () => {
   const filteredUkmGroups = ukmGroups.filter((group) => {
     const matchesCategory =
       selectedCategory === 'all' || group.category === selectedCategory;
-    return matchesCategory;
+    const matchesSearch = group.name.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesCategory && matchesSearch;
   });
 
   return (
     <div className="ukm-page">
       <h2>Unit Kegiatan Mahasiswa (UKM)</h2>
       <p>Bergabunglah dengan kelompok UKM ini untuk terhubung dengan mahasiswa yang memiliki minat sama! (Masih dalam pengembangan)</p>
+
+      {/* Search Input */}
+      <input
+        type="text"
+        placeholder="Cari UKM..."
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+        className="ukm-search-input"
+      />
 
       <div className="category-filter-row">
         <span
@@ -68,13 +78,13 @@ const UKM = () => {
           className={selectedCategory === 'Umum' ? 'active' : ''}
           onClick={() => handleCategoryClick('Umum')}
         >
-         Umum
+          Umum
         </span>
         <span
           className={selectedCategory === 'Lainnya' ? 'active' : ''}
           onClick={() => handleCategoryClick('Lainnya')}
         >
-         Etc
+          Etc
         </span>
         {/* Tambahkan kategori lainnya jika diperlukan */}
       </div>

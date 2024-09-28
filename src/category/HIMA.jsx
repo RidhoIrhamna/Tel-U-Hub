@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import "./HIMA.css"; 
-// Uncomment these imports when images are available
 import hmsi from '../assets/hmsi.png';
 import hmti from '../assets/hmti.png';
 import disca from '../assets/disca.jpeg';
@@ -61,6 +60,7 @@ const himaGroups = [
 
 const HIMA = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [searchQuery, setSearchQuery] = useState('');
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
@@ -69,13 +69,23 @@ const HIMA = () => {
   const filteredHimaGroups = himaGroups.filter((group) => {
     const matchesCategory =
       selectedCategory === 'all' || group.category === selectedCategory;
-    return matchesCategory;
+    const matchesSearch = group.name.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesCategory && matchesSearch;
   });
 
   return (
     <div className="hima-page">
       <h2>HIMA</h2>
       <p>Join these HIMA groups to connect with like-minded students! (Still in development)</p>
+
+      {/* Search Input */}
+      <input
+        type="text"
+        placeholder="Search HIMA groups..."
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+        className="hima-search-input"
+      />
 
       <div className="category-filter-row">
         <span

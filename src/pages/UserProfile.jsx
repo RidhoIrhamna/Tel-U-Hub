@@ -61,41 +61,45 @@ const UserProfile = () => {
   }, [navigate]);
 
   const handleUpdateProfile = async (e) => {
-    e.preventDefault();
-    const token = localStorage.getItem('authToken');
-    const userId = localStorage.getItem('userId');
+  e.preventDefault();
+  const token = localStorage.getItem('authToken');
+  const userId = localStorage.getItem('userId');
 
-    try {
-      const response = await fetch(`https://skillhub-esdlaboratory.loca.lt/api/users/${userId}`, {
-        method: 'PUT',
-        headers: {
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: userData.name,
-          phone: userData.phone,
-          profileImage: userData.profileImage,
-        }),
-      });
+  const formData = new FormData();
+  formData.append('name', userData.name);
+  formData.append('phone', userData.phone);
+  if (userData.profileImage) {
+    formData.append('profileImage', userData.profileImage); // Pastikan gambar diunggah
+  }
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || 'Failed to update user data');
-      }
+  try {
+    const response = await fetch(`https://skillhub-esdlaboratory.loca.lt/api/users/${userId}`, {
+      method: 'PUT',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        // Jangan gunakan 'Content-Type', karena FormData akan menambah header yang sesuai secara otomatis
+      },
+      body: formData,
+    });
 
-      // Save jurusan, kepribadian, and mottoHidup to localStorage
-      localStorage.setItem('jurusan', userData.jurusan);
-      localStorage.setItem('kepribadian', userData.kepribadian);
-      localStorage.setItem('mottoHidup', userData.mottoHidup);
-
-      alert('Profile updated successfully!');
-      setIsEditing(false);
-    } catch (error) {
-      setError(error.message);
-      console.error('Error updating user data:', error);
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.message || 'Failed to update user data');
     }
-  };
+
+    // Save jurusan, kepribadian, and mottoHidup to localStorage
+    localStorage.setItem('jurusan', userData.jurusan);
+    localStorage.setItem('kepribadian', userData.kepribadian);
+    localStorage.setItem('mottoHidup', userData.mottoHidup);
+
+    alert('Profile updated successfully!');
+    setIsEditing(false);
+  } catch (error) {
+    setError(error.message);
+    console.error('Error updating user data:', error);
+  }
+};
+
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -107,7 +111,7 @@ const UserProfile = () => {
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        setUserData({ ...userData, profileImage: reader.result });
+        setUserData({ ...userData, profileImage: file });
       };
       reader.readAsDataURL(file);
     }

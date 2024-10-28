@@ -8,7 +8,7 @@ const studyGroups = [
   {
     id: 1,
     name: 'Enterprise System Development Study Group',
-    description: 'This group focuses on technology field and how to develop the best digital product.',
+    description: 'This group focuses on technology field and how to develop the best digital product.......................',
     photo: ESD,
     link: 'https://www.instagram.com/esducation_/',
     category: 'FRI',

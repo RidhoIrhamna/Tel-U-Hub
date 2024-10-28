@@ -1,4 +1,3 @@
-// Dashboard.js
 import React, { useState, useEffect } from 'react';
 import { Route, Routes, Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -22,17 +21,18 @@ const Dashboard = () => {
 
   const navigate = useNavigate();
 
-  // Fetch user data from API
+  // Cek otentikasi dan Fetch data user dari API
   useEffect(() => {
-    const fetchUserData = async () => {
-      const token = localStorage.getItem('authToken');
-      const userId = localStorage.getItem('userId');
+    const token = localStorage.getItem('authToken');
 
-      if (!token) {
-        alert('You are not logged in!');
-        navigate('/login'); // Redirect to login page if no token
-        return;
-      }
+    if (!token) {
+      alert('You are not logged in!');
+      navigate('/login'); // Redirect ke halaman login jika tidak ada token
+      return;
+    }
+
+    const fetchUserData = async () => {
+      const userId = localStorage.getItem('userId');
 
       try {
         const response = await fetch(`https://skillhub-esdlaboratory.loca.lt/api/users/${userId}`, {
@@ -43,8 +43,8 @@ const Dashboard = () => {
         });
 
         if (!response.ok) {
-          const errorData = await response.json(); // Capture error response
-          throw new Error(errorData.message || 'Failed to fetch user data'); // Provide more context
+          const errorData = await response.json(); // Tangkap respon error
+          throw new Error(errorData.message || 'Failed to fetch user data'); // Beri konteks error lebih jelas
         }
 
         const data = await response.json();
@@ -53,8 +53,8 @@ const Dashboard = () => {
           profileImage: data.profileImage ? `https://skillhub-esdlaboratory.loca.lt${data.profileImage}` : '../src/assets/user-profile.jpg',
         });
       } catch (error) {
-        setError(error.message); // Set detailed error message
-        console.error('Error fetching user data:', error); // Log error details
+        setError(error.message); // Set pesan error lebih detil
+        console.error('Error fetching user data:', error); // Log detil error
       } finally {
         setLoading(false);
       }
@@ -63,13 +63,13 @@ const Dashboard = () => {
     fetchUserData();
   }, [navigate]);
 
-  // if (loading) {
-  //   return <div>Loading user data...</div>; // Loading message
-  // }
+  if (loading) {
+    return <div>Loading...</div>; // Atau tambahkan spinner loading di sini
+  }
 
-  // if (error) {
-  //   return <div>Error: {error}</div>; // Display error if fetching fails
-  // }
+  if (error) {
+    return <div>Error: {error}</div>; // Tampilkan error jika ada
+  }
 
   return (
     <div className="dashboard-container">

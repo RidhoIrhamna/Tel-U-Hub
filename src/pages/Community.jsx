@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "./Community.css"; // Import CSS file for styling
+import "./Community.css"; 
 import bandungDevImg from '../assets/bandungdev.png';
 import aisecImg from '../assets/aisec.png';
 import webinarImg from '../assets/foto webinar.jpg';
@@ -80,7 +80,6 @@ const Community = () => {
       <h2>Community</h2>
       <p>Join these communities to connect with like-minded people! (Bandung only, still in development)</p>
 
-      {/* Search Input */}
       <input
         type="text"
         placeholder="Search communities..."

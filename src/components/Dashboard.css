@@ -1,31 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-/* Scope all styles under .dashboard-container to make them exclusive to the Dashboard */
 .dashboard-container {
   display: flex;
-  height: 100vh; /* Full height of the viewport */
+  height: 100vh;
 }
 
 .dashboard-content {
   flex-grow: 1;
-  margin-left: 200px; /* Space for any sidebar (if applicable) */
+  margin-left: 200px;
   background-color: white;
   display: flex;
   flex-direction: column;
   z-index: 1;
   position: relative;
   font-family: 'Poppins', sans-serif;
-  max-height: 100vh; /* Limit the height to viewport height */
-  overflow-y: auto; /* Enable vertical scrolling */
+  max-height: 100vh;
+  overflow-y: auto;
 }
 
-/* Header with search bar and user profile */
 .dashboard-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px;
-  background: linear-gradient(90deg, #7a3230 47%, #e05b59 100%); /* Gradient background */
+  background: linear-gradient(90deg, #7a3230 47%, #e05b59 100%);
   color: #fff;
 }
 
@@ -34,30 +32,30 @@
   align-items: center;
   position: relative;
   flex-grow: 1;
-  max-width: 60%; /* Max width for the search bar */
+  max-width: 60%;
 }
 
 .dashboard-search-bar {
-  width: 100%; /* Full width of the container */
-  padding: 10px 40px; /* Padding adjusted for search icon space */
+  width: 100%;
+  padding: 10px 40px;
   border-radius: 25px;
-  border: 2px solid #fff; /* White border */
-  background-color: #fff; /* White background for the input */
+  border: 2px solid #fff;
+  background-color: #fff;
   font-size: 16px;
-  color: #333; /* Dark text color */
+  color: #333;
 }
 
 .dashboard-search-bar::placeholder {
-  color: #999; /* Placeholder text color */
+  color: #999;
 }
 
 .dashboard-search-icon {
   position: absolute;
-  left: 15px; /* Positioning the icon inside the input */
+  left: 15px;
   top: 50%;
   transform: translateY(-50%);
-  color: #999; /* Icon color */
-  font-size: 18px; /* Icon size */
+  color: #999;
+  font-size: 18px;
 }
 
 .dashboard-user-profile {
@@ -65,111 +63,96 @@
 }
 
 .dashboard-user-profile-pic {
-  width: 65px; /* User profile image width */
-  height: 65px; /* User profile image height */
-  border-radius: 50%; /* Circular profile image */
-  margin-right: 10px; /* Space between image and name */
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  margin-right: 10px;
 }
 
 .dashboard-user-name {
-  font-size: 18px; /* Font size for the user name */
-  color: white; /* White text color */
+  font-size: 18px;
+  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-decoration: none; /* No underline */
+  text-decoration: none;
 }
 
 .dashboard-logout-button {
-  padding: 10px 20px; /* Button padding */
-  background-color: #ff4d4d; /* Red background color */
-  color: white; /* White text color */
-  border: none; /* No border */
-  border-radius: 4px; /* Rounded corners */
-  cursor: pointer; /* Pointer cursor on hover */
+  padding: 10px 20px;
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .dashboard-main-content {
-  padding: 20px; /* Padding inside the main content */
-  background-color: white; /* White background for main content */
-  flex-grow: 1; /* Allow main content to grow */
+  padding: 20px;
+  background-color: white;
+  flex-grow: 1;
 }
 
-/* Media Queries for Responsiveness */
 @media (max-width: 768px) {
   .dashboard-content {
-    margin-left: 150px; /* Adjust margin for smaller screens */
+    margin-left: 150px;
   }
-
   .dashboard-search-bar-container {
-    max-width: 70%; /* Allow search bar to be wider */
+    max-width: 70%;
   }
-
   .dashboard-user-profile-pic {
-    width: 50px; /* Reduce profile picture size */
-    height: 50px; /* Reduce profile picture size */
+    width: 50px;
+    height: 50px;
   }
-
   .dashboard-user-name {
-    font-size: 16px; /* Smaller font size for user name */
+    font-size: 16px;
   }
 }
 
 @media (max-width: 600px) {
   .dashboard-content {
-    margin-left: 100px; /* Further reduce margin for even smaller screens */
+    margin-left: 100px;
   }
-
   .dashboard-search-bar {
-    padding: 8px 30px; /* Reduce padding in search bar */
-    font-size: 14px; /* Smaller font size */
+    padding: 8px 30px;
+    font-size: 14px;
   }
-
   .dashboard-search-icon {
-    font-size: 16px; /* Smaller icon size */
+    font-size: 16px;
   }
-
   .dashboard-user-profile-pic {
-    width: 40px; /* Further reduce profile picture size */
-    height: 40px; /* Further reduce profile picture size */
+    width: 40px;
+    height: 40px;
   }
-
   .dashboard-user-name {
-    font-size: 14px; /* Further reduce font size */
+    font-size: 14px;
   }
-
   .dashboard-logout-button {
-    padding: 8px 16px; /* Reduce button padding */
+    padding: 8px 16px;
   }
 }
 
 @media (max-width: 400px) {
   .dashboard-content {
-    margin-left: 0; /* Remove margin for very small screens */
+    margin-left: 0;
   }
-
   .dashboard-search-bar-container {
-    max-width: 90%; /* Allow search bar to be almost full width */
+    max-width: 90%;
   }
-
   .dashboard-search-bar {
-    padding: 6px 20px; /* Further reduce padding */
+    padding: 6px 20px;
   }
-
   .dashboard-search-icon {
-    font-size: 14px; /* Further reduce icon size */
+    font-size: 14px;
   }
-
   .dashboard-user-profile-pic {
-    width: 35px; /* Further reduce profile picture size */
-    height: 35px; /* Further reduce profile picture size */
+    width: 35px;
+    height: 35px;
   }
-
   .dashboard-user-name {
-    font-size: 12px; /* Further reduce font size */
+    font-size: 12px;
   }
-
   .dashboard-logout-button {
-    padding: 6px 12px; /* Further reduce button padding */
+    padding: 6px 12px;
   }
 }

@@ -1,4 +1,3 @@
-/* General Resets */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -14,7 +13,7 @@ body {
   margin: 0 auto;
   padding: 20px;
   max-width: 1000px;
-  height: auto; /* Change height to auto for flexibility */
+  height: auto;
 }
 
 .home-page h1 {
@@ -28,7 +27,6 @@ body {
   text-align: center;
 }
 
-/* Adjust Greetings section */
 .home-greetings-container {
   display: flex;
   align-items: center;
@@ -37,7 +35,7 @@ body {
   position: relative;
   border-radius: 40px;
   background-color: #fef4f4;
-  height: auto; /* Change height to auto for flexibility */
+  height: auto;
   padding: 10px 20px;
 }
 
@@ -59,7 +57,6 @@ body {
   text-align: left;
 }
 
-/* Organizational Categories */
 .home-categories {
   margin: 30px 0;
 }
@@ -105,7 +102,6 @@ body {
   font-size: 1.3em;
 }
 
-/* News/Recommendations */
 .home-news-container {
   position: relative;
   width: 100%;
@@ -154,7 +150,6 @@ body {
   background-color: #9a45456d;
 }
 
-/* News Navigation */
 .home-news-navigation {
   display: flex;
   justify-content: space-between;
@@ -176,67 +171,55 @@ body {
   background-color: #7a3230;
 }
 
-/* Responsive adjustments */
 @media (max-width: 600px) {
   .home-page {
-    padding: 10px; /* Reduce padding for mobile */
+    padding: 10px;
   }
-
   .home-greetings-container {
-    flex-direction: column; /* Stack items vertically on small screens */
-    height: auto; /* Allow height to adjust */
+    flex-direction: column;
+    height: auto;
   }
-
   .home-greetings-image {
-    width: 100%; /* Make image responsive */
-    height: auto; /* Maintain aspect ratio */
-    margin-right: 0; /* Remove margin on small screens */
-    margin-bottom: 10px; /* Space below image */
+    width: 100%;
+    height: auto;
+    margin-right: 0;
+    margin-bottom: 10px;
   }
-
   .home-greetings-text {
-    font-size: 24px; /* Adjust font size for smaller screens */
+    font-size: 24px;
   }
-
   .home-category-list {
-    flex-direction: column; /* Stack categories vertically */
-    align-items: center; /* Center align */
-  }
-
-  .home-category-card {
-    width: 90%; /* Make category cards responsive */
-    margin-bottom: 20px; /* Add space between cards */
-  }
-
-  .home-news-navigation {
-    flex-direction: column; /* Stack navigation buttons */
+    flex-direction: column;
     align-items: center;
   }
-
+  .home-category-card {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+  .home-news-navigation {
+    flex-direction: column;
+    align-items: center;
+  }
   .home-news-navigation button {
-    width: 100%; /* Full width buttons */
-    margin-bottom: 10px; /* Space below buttons */
+    width: 100%;
+    margin-bottom: 10px;
   }
-
   .home-news-container {
-    height: auto; /* Allow height to adjust for content */
+    height: auto;
   }
-
   .home-news-content p {
-    font-size: 1em; /* Adjust font size */
+    font-size: 1em;
   }
 }
 
 @media (max-width: 480px) {
   .home-greetings-text {
-    font-size: 20px; /* Further reduce font size for very small screens */
+    font-size: 20px;
   }
-
   .home-category-card h3 {
-    font-size: 1.1em; /* Adjust category card title size */
+    font-size: 1.1em;
   }
-
   .home-news-content a {
-    font-size: 0.8em; /* Adjust link size */
+    font-size: 0.8em;
   }
 }

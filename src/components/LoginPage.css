@@ -1,14 +1,13 @@
-/* Login Page Styles */
-.unique-login-container {
+.login-container {
   position: relative;
-  height: 100vh; /* Full viewport height */
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: auto; /* Allow container overflow for scrolling */
+  overflow: auto;
 }
 
-.unique-vector-bg {
+.login-vector-bg {
   position: absolute;
   top: -20px;
   left: 0;
@@ -18,7 +17,7 @@
   z-index: -1;
 }
 
-.unique-app-logo {
+.login-app-logo {
   position: absolute;
   top: 20px;
   left: 20px;
@@ -27,200 +26,186 @@
   z-index: 1;
 }
 
-.unique-content {
+.login-content {
   display: flex;
   justify-content: space-between;
   width: 100%;
   padding: 0 50px;
   z-index: 1;
-  flex-wrap: wrap; /* Allow wrapping for smaller screens */
+  flex-wrap: wrap;
 }
 
-.unique-left-content,
-.unique-right-content {
+.login-left-content,
+.login-right-content {
   flex: 1;
   display: flex;
   align-items: center;
-  justify-content: center; /* Center the content */
-  padding: 20px; /* Add padding */
+  justify-content: center;
+  padding: 20px;
 }
 
-.unique-promo-section {
+.login-promo-section {
   position: relative;
   z-index: 2;
   margin-left: 50px;
   top: 50px;
-  max-width: 100%; /* Prevent overflow */
+  max-width: 100%;
 }
 
-.unique-promo-section h1 {
-  font-size: 2rem; /* Use rem for scalability */
+.login-promo-section h1 {
+  font-size: 2rem;
   font-family: 'Poppins', sans-serif;
   color: #ffffff;
   margin-bottom: 20px;
 }
 
-.unique-decoration-img {
-  width: 100%; /* Make image responsive */
-  max-width: 650px; /* Set a max width */
-  height: auto; /* Maintain aspect ratio */
+.login-decoration-img {
+  width: 100%;
+  max-width: 650px;
+  height: auto;
   margin-top: 10px;
 }
 
-.unique-form-section {
+.login-form-section {
   background-color: rgba(255, 255, 255, 0.9);
   padding: 40px;
   border-radius: 25px;
   box-shadow: 8px 16px 19.3px #4d161640;
-  width: 90%; /* Use a responsive width */
-  max-width: 500px; /* Maintain a max width */
+  width: 90%;
+  max-width: 500px;
   z-index: 2;
-  display: flex; /* Add flex to allow vertical stacking */
-  flex-direction: column; /* Stack items vertically */
-  align-items: center; /* Center items */
-  overflow-y: auto; /* Allow vertical scrolling */
-  max-height: 80vh; /* Limit the height for scrolling */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  max-height: 80vh;
 }
 
-.unique-form-section h2 {
-  font-size: 1.5rem; /* Responsive font size */
+.login-form-section h2 {
+  font-size: 1.5rem;
   font-family: 'Poppins', sans-serif;
   color: #333;
   margin-bottom: 20px;
   text-align: left;
-  width: 100%; /* Ensure it uses full width */
+  width: 100%;
 }
 
-.unique-login-form {
+.login-login-form {
   display: flex;
   flex-direction: column;
-  width: 100%; /* Ensure the form takes full width */
+  width: 100%;
 }
 
-.unique-form-group {
+.login-form-group {
   margin-bottom: 15px;
-  width: 100%; /* Ensure full width */
+  width: 100%;
 }
 
-.unique-form-group label {
+.login-form-group label {
   font-family: 'Poppins', sans-serif;
-  font-size: 1rem; /* Use rem for consistency */
+  font-size: 1rem;
   margin-bottom: 5px;
   color: #333;
 }
 
-.unique-form-group input {
+.login-form-group input {
   padding: 10px;
-  font-size: 1rem; /* Use rem for consistency */
-  width: 100%; /* Ensure full width */
+  font-size: 1rem;
+  width: 100%;
   border: 2px solid #ccc;
   border-radius: 10px;
-  box-sizing: border-box; /* Ensure padding is included in width */
+  box-sizing: border-box;
 }
 
-.unique-btn-login {
+.login-btn-login {
   display: inline-block;
   font-family: 'Poppins', sans-serif;
   padding: 12px 20px;
-  width: 100%; /* Full width on buttons */
+  width: 100%;
   background-color: #E35D5B;
   text-align: center;
   color: white;
-  font-size: 1rem; /* Use rem for scalability */
+  font-size: 1rem;
   border: none;
   border-radius: 10px;
   cursor: pointer;
   margin-top: 20px;
 }
 
-.unique-btn-login:hover {
+.login-btn-login:hover {
   background-color: #c75050;
 }
 
-.unique-signup-text {
+.login-signup-text {
   font-family: 'Poppins', sans-serif;
   margin-top: 20px;
-  font-size: 0.875rem; /* Responsive size */
+  font-size: 0.875rem;
   color: #333;
 }
 
-.unique-signup-text a {
+.login-signup-text a {
   color: #E35D5B;
   text-decoration: none;
 }
 
-.unique-signup-text a:hover {
+.login-signup-text a:hover {
   text-decoration: underline;
 }
 
-/* Responsive Styles */
 @media (max-width: 768px) {
-  .unique-content {
-    flex-direction: column; /* Stack left and right content vertically */
-    padding: 0 20px; /* Adjust padding */
+  .login-content {
+    flex-direction: column;
+    padding: 0 20px;
   }
-
-  .unique-promo-section {
-    margin-left: 0; /* Remove left margin on smaller screens */
-    text-align: center; /* Center align text */
+  .login-promo-section {
+    margin-left: 0;
+    text-align: center;
   }
-
-  .unique-decoration-img {
-    width: 100%; /* Make decoration image responsive */
-    height: auto; /* Maintain aspect ratio */
-    margin: 0; /* Remove margin */
+  .login-decoration-img {
+    width: 100%;
+    height: auto;
+    margin: 0;
   }
-
-  .unique-form-section {
-    width: 90%; /* Adjust form width for smaller screens */
-    padding: 30px; /* Adjust padding */
-    max-height: 80vh; /* Limit the height for scrolling */
+  .login-form-section {
+    width: 90%;
+    padding: 30px;
+    max-height: 80vh;
   }
-
-  .unique-form-section h2 {
-    font-size: 1.5rem; /* Smaller font size */
+  .login-form-section h2 {
+    font-size: 1.5rem;
   }
-
-  .unique-form-group {
-    width: 100%; /* Ensure form group uses full width */
+  .login-form-group {
+    width: 100%;
   }
-
-  .unique-form-group label {
-    font-size: 1rem; /* Keep label size */
+  .login-form-group label {
+    font-size: 1rem;
   }
-
-  .unique-form-group input {
-    font-size: 1rem; /* Smaller input font size */
+  .login-form-group input {
+    font-size: 1rem;
   }
-
-  .unique-btn-login {
-    padding: 10px; /* Adjust button padding */
-    font-size: 1rem; /* Smaller button font size */
+  .login-btn-login {
+    padding: 10px;
+    font-size: 1rem;
   }
-
-  .unique-signup-text {
-    text-align: center; /* Center align signup text */
+  .login-signup-text {
+    text-align: center;
   }
 }
 
 @media (max-width: 480px) {
-  .unique-promo-section h1 {
-    font-size: 1.5rem; /* Further reduce font size */
+  .login-promo-section h1 {
+    font-size: 1.5rem;
   }
-
-  .unique-form-group label {
-    font-size: 0.875rem; /* Smaller label font size */
+  .login-form-group label {
+    font-size: 0.875rem;
   }
-
-  .unique-form-group input {
-    font-size: 0.875rem; /* Smaller input font size */
+  .login-form-group input {
+    font-size: 0.875rem;
   }
-
-  .unique-btn-login {
-    font-size: 0.875rem; /* Smaller button font size */
+  .login-btn-login {
+    font-size: 0.875rem;
   }
-
-  .unique-signup-text {
-    font-size: 0.875rem; /* Smaller login text font size */
+  .login-signup-text {
+    font-size: 0.875rem;
   }
 }

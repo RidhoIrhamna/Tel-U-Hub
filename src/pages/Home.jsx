@@ -7,10 +7,9 @@ import StudyGroup from '../category/StudyGroup';
 import HIMA from '../category/HIMA';
 
 const HomeLayout = () => {
-  // This component is now only for routing to nested routes, no longer displays any content
   return (
     <div className="home-layout">
-      <Outlet />  {/* Nested Route Outlet for other routes */}
+      <Outlet />  
     </div>
   );
 };
@@ -95,10 +94,8 @@ const MainHome = () => {
 const Home = () => {
   return (
     <Routes>
-      {/* Main Home Route */}
       <Route path="/" element={<MainHome />} />
       <Route path="/" element={<HomeLayout />}>
-        {/* Nested Routes that will display separate content */}
         <Route path="bem" element={<BEM />} />
         <Route path="hima" element={<HIMA />} />
         <Route path="ukm" element={<UKM />} />

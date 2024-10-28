@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
-import './SignUp.css'; // Impor file CSS untuk halaman Signup
-import { FaEye, FaEyeSlash } from 'react-icons/fa'; // Impor ikon dari react-icons
-import { useNavigate } from 'react-router-dom'; // Impor useNavigate untuk redirect
-import { toast, ToastContainer } from 'react-toastify'; // Import Toastify
-import 'react-toastify/dist/ReactToastify.css'; // Import CSS untuk Toastify
+import './SignUp.css'; 
+import { FaEye, FaEyeSlash } from 'react-icons/fa'; 
+import { useNavigate } from 'react-router-dom'; 
 
 const SignUpPage = () => {
-    // State untuk mengontrol visibilitas password
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [formData, setFormData] = useState({
         name: '',
@@ -25,12 +22,10 @@ const SignUpPage = () => {
         });
     };
 
-    // Fungsi untuk toggle visibilitas password
     const togglePasswordVisibility = () => {
         setPasswordVisible(!passwordVisible);
     };
 
-    // Fungsi untuk mengirim data ke API register
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsLoading(true);
@@ -42,26 +37,14 @@ const SignUpPage = () => {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(formData) // Mengirim data form ke API
+                body: JSON.stringify(formData) 
             });
 
             const data = await response.json();
             if (response.ok) {
                 console.log('Sign Up Successful!', data);
-                toast.success('Sign Up Successful!', {
-                    position: "top-right",
-                    autoClose: 1500,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                });
-
-                setTimeout(() => {
-                    navigate('/dashboard'); // Redirect setelah berhasil signup
-                }, 2000); // Delay redirect selama 2 detik
-
+                alert('Sign Up Successful! Redirecting to dashboard...');
+                navigate('/dashboard'); 
                 localStorage.setItem('authToken', data.token);
                 localStorage.setItem('userId', data.user.id);
             } else {
@@ -69,15 +52,7 @@ const SignUpPage = () => {
             }
         } catch (err) {
             setError('Something went wrong. Please try again later.');
-            toast.error('Register failed. Please check your email and password.', {
-                position: "top-right",
-                autoClose: 1500,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            });
+            alert('Register failed. Please check your email and password.');
         } finally {
             setIsLoading(false);
         }
@@ -85,13 +60,9 @@ const SignUpPage = () => {
 
     return (
         <div className="signup-container">
-            {/* Logo */}
             <img src="../src/assets/logo app.png" alt="Logo" className="signup-app-logo" />
-
-            {/* Gambar vector di background */}
             <img src="../src/assets/login vector.png" alt="Vector" className="signup-vector-bg" />
 
-            {/* Konten */}
             <div className="signup-content">
                 <div className="signup-left-content">
                     <div className="signup-promo-section">
@@ -165,9 +136,6 @@ const SignUpPage = () => {
                     </div>
                 </div>
             </div>
-
-            {/* Komponen untuk menampilkan toast */}
-            <ToastContainer />
         </div>
     );
 };

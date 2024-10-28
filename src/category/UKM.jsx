@@ -29,7 +29,6 @@ const ukmGroups = [
     link: 'https://www.instagram.com/ukmbandunitel',
     category: 'Kesenian',
   },
-  // Tambahkan grup UKM lainnya di sini
 ];
 
 const UKM = () => {
@@ -52,7 +51,6 @@ const UKM = () => {
       <h2>Unit Kegiatan Mahasiswa (UKM)</h2>
       <p>Bergabunglah dengan kelompok UKM ini untuk terhubung dengan mahasiswa yang memiliki minat sama! (Masih dalam pengembangan)</p>
 
-      {/* Search Input */}
       <input
         type="text"
         placeholder="Cari UKM..."
@@ -86,7 +84,6 @@ const UKM = () => {
         >
           Etc
         </span>
-        {/* Tambahkan kategori lainnya jika diperlukan */}
       </div>
 
       <ul>

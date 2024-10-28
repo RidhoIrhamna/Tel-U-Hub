@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
-import './LoginPage.css'; // Import CSS
+import './LoginPage.css'; 
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { ToastContainer, toast } from 'react-toastify'; // Import react-toastify
-import 'react-toastify/dist/ReactToastify.css'; // Import CSS untuk toastify
-
-// Import assets
 import logoApp from '../assets/logo app.png';
 import vectorBg from '../assets/login vector.png';
 import decorationImg from '../assets/login img.png';
@@ -16,7 +12,7 @@ const LoginPage = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
 
-  const handleLogin = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post('https://skillhub-esdlaboratory.loca.lt/api/login', {
@@ -24,55 +20,37 @@ const LoginPage = () => {
         password: password,
       });
 
-      if (response.status === 200 && response.data.token) {
+      if (response.data.token) {
         localStorage.setItem('authToken', response.data.token);
         localStorage.setItem('userId', response.data.user.id);
-
-        toast.success('Login successful! Redirecting to dashboard...', {
-          position: "top-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-        });
-
-        setTimeout(() => {
-          navigate('/dashboard');
-        }, 1500);
+        alert('Login successful! Redirecting to dashboard...');
+        navigate('/dashboard');
       }
+      
     } catch (error) {
       setErrorMessage('Login gagal. email dan password invalid.');
-      setTimeout(() => {
-        setErrorMessage('');
-      }, 1500);
-      toast.error('Login failed. Please check your email and password.', {
-        position: "top-right",
-        autoClose: 1500,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-      });
+      alert('Login failed. Please check your email and password.');
+      setEmail('');
+      setPassword('');
     }
   };
 
   return (
-    <div className="unique-login-container">
-      <img src={logoApp} alt="Logo" className="unique-app-logo" />
-      <img src={vectorBg} alt="Vector" className="unique-vector-bg" />
-      <div className="unique-content">
-        <div className="unique-left-content">
-          <div className="unique-promo-section">
+    <div className="login-container">
+      <img src={logoApp} alt="Logo" className="login-app-logo" />
+      <img src={vectorBg} alt="Vector" className="login-vector-bg" />
+      <div className="login-content">
+        <div className="login-left-content">
+          <div className="login-promo-section">
             <h1>Find your place, Fuel your passion.</h1>
-            <img src={decorationImg} alt="Decoration" className="unique-decoration-img" />
+            <img src={decorationImg} alt="Decoration" className="login-decoration-img" />
           </div>
         </div>
-        <div className="unique-right-content">
-          <div className="unique-form-section">
+        <div className="login-right-content">
+          <div className="login-form-section">
             <h2>Start your journey here.</h2>
-            <form className="unique-login-form" onSubmit={handleLogin}>
-              <div className="unique-form-group">
+            <form className="login-login-form" onSubmit={handleSubmit}>
+              <div className="login-form-group">
                 <label>Email:</label>
                 <input
                   type="email"
@@ -80,9 +58,11 @@ const LoginPage = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
+                  autoComplete="on"
+                  aria-label="Email"
                 />
               </div>
-              <div className="unique-form-group unique-password-group">
+              <div className="login-form-group login-password-group">
                 <label>Password:</label>
                 <input
                   type="password"
@@ -90,21 +70,21 @@ const LoginPage = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
+                  autoComplete="on"
+                  aria-label="Password"
                 />
               </div>
-              {errorMessage && <p className="unique-error-message">{errorMessage}</p>}
-              <button type="submit" className="unique-btn-login">Login</button>
+              {errorMessage && <p className="login-error-message">{errorMessage}</p>}
+              <button type="submit" className="login-btn-login">Login</button>
             </form>
-            <p className="unique-signup-text">
+            <p className="login-signup-text">
               Don't have an account? <a href="/signup">Sign Up</a>
             </p>
           </div>
         </div>
       </div>
-
-      <ToastContainer />
     </div>
   );
-}
+};
 
 export default LoginPage;

@@ -1,10 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faUsers, faChartPie, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'; // Import necessary icons
+import { faHome, faUsers, faChartPie, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import './Sidebar.css';
 
 const Sidebar = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem('authToken');
+    localStorage.removeItem('userId');
+    alert('You have been logged out. Redirecting to login page.');
+    navigate('/');
+  };
+
   return (
     <div className="sidebar">
       <img src="../src/assets/Logo App.png" alt="Logo" className="sidebar-logo" />
@@ -19,12 +28,6 @@ const Sidebar = () => {
             <FontAwesomeIcon icon={faUsers} className="icon" /> Community
           </Link>
         </li>
-        {/* Hapus tautan untuk Organization */}
-        {/* <li>
-          <Link to="organization" className="oval-button">
-            <FontAwesomeIcon icon={faBuilding} className="icon" /> Organization
-          </Link>
-        </li> */}
         <li>
           <Link to="mbti-test" className="oval-button">
             <FontAwesomeIcon icon={faChartPie} className="icon" /> MBTI Test
@@ -32,9 +35,9 @@ const Sidebar = () => {
         </li>
       </ul>
       <div className="sidebar-footer">
-        <Link to="/" className="oval-button">
+        <button onClick={handleLogout} className="oval-button">
           <FontAwesomeIcon icon={faSignOutAlt} className="icon" /> Logout
-        </Link>
+        </button>
       </div>
     </div>
   );

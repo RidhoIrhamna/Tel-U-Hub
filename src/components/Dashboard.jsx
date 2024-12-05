@@ -4,7 +4,6 @@ import './Dashboard.css';
 import Sidebar from './Sidebar';
 import Home from '../pages/Home';
 import Community from '../pages/Community';
-import Organization from '../pages/Organization';
 import MBTITest from '../pages/MBTITest';
 import UserProfile from '../pages/UserProfile';
 
